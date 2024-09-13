@@ -1,4 +1,4 @@
-const travelOffers = [
+window.travelOffers = [
     {
       country: "Hiszpania",
       city: "Barcelona",
