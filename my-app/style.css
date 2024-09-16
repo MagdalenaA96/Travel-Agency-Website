@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Special+Elite&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: azure;
+}
+
+header {
+  width: 100%;
+  background-image: url("static/images/sean-oulashin-KMn4VEeEPR8-unsplash.jpg");
+  background-size: cover;
+  height: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-right: calc((100vw - 1200px) / 2);
+}
+
+#agency-name {
+  color: rgb(255, 255, 255);
+  font-style: oblique;
+  font-size: 50px;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  padding-left: 50px;
+  margin-bottom: 25px;
+}
+
+#search-menu-box {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: auto;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  padding-right: 5px;
+}
+
+#searcher {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  height: 44px;
+  width: 100%;
+  border: 2px solid gray;
+  border-right: none;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  font-size: 20px;
+  margin-left: 25px;
+  padding-left: 15px;
+}
+
+#button-place {
+  background-color: white;
+  height: 44px;
+  width: 140px;
+  border: 2px solid gray;
+  border-left: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search {
+  height: 35px;
+  width: 105px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: rgb(249, 66, 66);
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+nav ul {
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  list-style: none;
+  margin-top: 5px;
+  padding-left: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+main {
+  max-width: 1200px;
+  background-color: azure;
+  margin: 0 auto;
+  padding: 30px 20px 0 20px;
+}
+
+main section {
+  margin-bottom: 40px;
+}
+
+main section h2 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  font-size: 28px;
+}
+
+main p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+#introduce p {
+  text-align: justify;
+}
+
+.offer-box {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.offer-image {
+  height: 300px;
+}
+
+.decription-style {
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.price-style {
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.decription-style span {
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.my-offer-container {
+  display: flex;
+}
+
+.travel-details-styles {
+  width: 100%;
+  margin: 5px 20px;
+  padding: 20px;
+  border: 1px solid gray;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
