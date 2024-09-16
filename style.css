@@ -1,25 +1,125 @@
-header {
-    width: 100vw;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Special+Elite&display=swap");
 
-header nav ul li {
-    list-style: none;
-    display: inline-block;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: black;
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: azure;
+  background-color: azure;
+}
+
+header {
+  width: 100vw;
+  background-image: url("static/images/sean-oulashin-KMn4VEeEPR8-unsplash.jpg");
+  background-size: cover;
+  height: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-right: calc((100vw - 1200px) / 2);
+}
+
+#agency-name {
+  color: rgb(255, 255, 255);
+  font-style: oblique;
+  font-size: 50px;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  padding-left: 50px;
+  margin-bottom: 25px;
+}
+
+#search-menu-box {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: auto;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  padding-right: 5px;
+}
+
+#searcher {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  height: 44px;
+  width: 100%;
+  border: 2px solid gray;
+  border-right: none;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  font-size: 20px;
+  margin-left: 25px;
+  padding-left: 15px;
+}
+
+#button-place {
+  background-color: white;
+  height: 44px;
+  width: 140px;
+  border: 2px solid gray;
+  border-left: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search {
+  height: 35px;
+  width: 105px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: rgb(249, 66, 66);
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+nav ul {
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  list-style: none;
+  margin-top: 5px;
+  padding-left: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
 
 main {
-    max-width: 1200px;
-    background-color: burlywood;
+  max-width: 1200px;
+  background-color: azure;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+main p {
+  font-size: 20px;
+}
+
+.offer-box {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
 }
