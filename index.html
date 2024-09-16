@@ -18,7 +18,11 @@
             type="text"
             placeholder="Type direction..."
           />
-          <div id="button-place"><button id="search">Search</button></div>
+          <div id="button-place">
+            <button class="main-buttons-style" id="search-button">
+              Search
+            </button>
+          </div>
         </div>
         <nav>
           <ul>
@@ -51,12 +55,17 @@
       </section>
       <section class="hidden" id="choosen-offer">
         <h2 id="hotel-name"></h2>
-        <div class="my-offer-container">
-          <img src="static/images/chor-tsang-07mSKrzKiRw-unsplash.jpg" />
-          <div
-            id="travel-details-container"
-            class="travel-details-styles"
-          ></div>
+        <div>
+          <div class="my-offer-container">
+            <img src="static/images/chor-tsang-07mSKrzKiRw-unsplash.jpg" />
+            <div class="travel-details-styles">
+              <div id="travel-details-container"></div>
+              <button class="main-buttons-style" id="booking-button">
+                Book
+              </button>
+            </div>
+          </div>
+          <div id="my-offer-description"></div>
         </div>
         <div></div>
       </section>

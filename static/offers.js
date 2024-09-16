@@ -13,7 +13,15 @@ window.travelOffers = [
       { departure: `${year}-07-01`, return: `${year}-07-08` },
       { departure: `${year}-08-05`, return: `${year}-08-12` },
     ],
-    fullOfferDescription: "",
+    fullOfferDescription: {
+      advantages: `This modern hotel boasts stunning views of the Mediterranean Sea and the vibrant cityscape. Guests love the rooftop pool and stylish interiors.`,
+      location:
+        "Situated in the heart of Barcelona, just a 10-minute walk from the famous Sagrada Familia.",
+      beachDistance: `The beach is a short 15-minute drive away, offering golden sands and calm waters.`,
+      amenities: `Rooftop pool, spa, fitness center, and a gourmet restaurant with Catalonian specialties.`,
+      nearbyAttractions: `Gaudí’s Park Güell, La Rambla, and the Gothic Quarter.`,
+      cityDescription: `Barcelona is a bustling city known for its unique architecture, lively markets, and beautiful beaches.`,
+    },
   },
   {
     country: "Włochy",
@@ -26,6 +34,14 @@ window.travelOffers = [
       { departure: `${year}-06-22`, return: `${year}-06-29` },
       { departure: `${year}-07-15`, return: `${year}-07-22` },
     ],
+    fullOfferDescription: {
+      advantages: `A blend of classic Roman charm and modern luxury, this hotel offers spacious rooms with elegant décor and a quiet courtyard garden.`,
+      location: `Centrally located, only 5 minutes from the Colosseum and Roman Forum.`,
+      beachDistance: `While Rome is inland, the beach at Lido di Ostia is just 30 minutes by train.`,
+      amenities: `Fine-dining Italian restaurant, rooftop terrace, and private guided tours available.`,
+      nearbyAttractions: `GVatican City, Trevi Fountain, and the Pantheon.`,
+      cityDescription: `Rome is a historical treasure trove, with ancient ruins and Renaissance masterpieces at every corner.`,
+    },
   },
   {
     country: "Francja",
@@ -38,6 +54,14 @@ window.travelOffers = [
       { departure: `${year}-06-05`, return: `${year}-06-12` },
       { departure: `${year}-09-10`, return: `${year}-09-17` },
     ],
+    fullOfferDescription: {
+      advantages: `A luxury boutique hotel housed in a restored 19th-century building, perfect for a romantic getaway.`,
+      location: `Located in the Latin Quarter, just a 10-minute walk from the Notre-Dame Cathedral.`,
+      beachDistance: `Although Paris doesn’t have beaches, guests can enjoy the Paris Plages along the Seine in summer.`,
+      amenities: `Elegant suites, Michelin-starred restaurant, and private boat tours on the Seine.`,
+      nearbyAttractions: `Eiffel Tower, Louvre Museum, and Montmartre.`,
+      cityDescription: `Paris is the city of love and lights, offering world-class cuisine, art, and fashion.`,
+    },
   },
   {
     country: "Grecja",
@@ -50,6 +74,14 @@ window.travelOffers = [
       { departure: `${year}-07-10`, return: `${year}-07-17` },
       { departure: `${year}-09-15`, return: `${year}-09-22` },
     ],
+    fullOfferDescription: {
+      advantages: `Enjoy breathtaking views of the Acropolis from the rooftop terrace of this cozy hotel.`,
+      location: `Nestled in the historic Plaka district, close to the Parthenon and Acropolis Museum.`,
+      beachDistance: `Athens' coast is a 20-minute drive, offering sandy beaches and clear waters.`,
+      amenities: `Rooftop bar, guided tours, and traditional Greek cuisine at the hotel’s taverna.`,
+      nearbyAttractions: `The Acropolis, Ancient Agora, and Temple of Olympian Zeus.`,
+      cityDescription: `Athens is a city where ancient history meets modern vibrancy, with a wealth of archaeological wonders.`,
+    },
   },
   {
     country: "Turcja",
@@ -62,6 +94,14 @@ window.travelOffers = [
       { departure: `${year}-07-01`, return: `${year}-07-08` },
       { departure: `${year}-09-01`, return: `${year}-09-08` },
     ],
+    fullOfferDescription: {
+      advantages: `This beachside hotel offers all-inclusive luxury with family-friendly amenities and water sports.`,
+      location: `Located directly on the beach, with panoramic views of the Mediterranean.`,
+      beachDistance: `The beach is right at your doorstep—perfect for sunbathing and swimming.`,
+      amenities: `Multiple pools, private beach access, water slides, and spa services.`,
+      nearbyAttractions: `Duden Waterfalls, Kaleici (Old Town), and Antalya Museum.`,
+      cityDescription: ` Antalya is a Turkish Riviera gem, known for its beautiful beaches, turquoise waters, and ancient ruins.`,
+    },
   },
   {
     country: "Egipt",
@@ -74,6 +114,14 @@ window.travelOffers = [
       { departure: `${year}-07-15`, return: `${year}-07-22` },
       { departure: `${year}-10-01`, return: `${year}-10-08` },
     ],
+    fullOfferDescription: {
+      advantages: `A perfect blend of relaxation and adventure, offering stunning sea views and exciting desert safaris.`,
+      location: `Overlooking the Red Sea, with direct beach access.`,
+      beachDistance: `The hotel is beachfront, with pristine white sand and crystal-clear waters.`,
+      amenities: `Diving school, beach volleyball, multiple restaurants, and spa.`,
+      nearbyAttractions: `Giftun Island, Hurghada Grand Aquarium, and desert safaris.`,
+      cityDescription: `Hurghada is a tropical paradise, famous for its coral reefs and vibrant marine life.`,
+    },
   },
   {
     country: "Portugalia",
@@ -86,6 +134,14 @@ window.travelOffers = [
       { departure: `${year}-08-20`, return: `${year}-08-27` },
       { departure: `${year}-09-25`, return: `${year}-10-02` },
     ],
+    fullOfferDescription: {
+      advantages: `Perched on a hill, this hotel offers sweeping views of Lisbon’s rooftops and the Atlantic Ocean.`,
+      location: `Situated in the historic Alfama district, close to the famous São Jorge Castle.`,
+      beachDistance: `The beaches of Cascais are just a 30-minute train ride away.`,
+      amenities: `Rooftop infinity pool, Portuguese wine tasting, and live Fado music performances.`,
+      nearbyAttractions: `Belém Tower, Jerónimos Monastery, and the Tram 28 route.`,
+      cityDescription: `Lisbon is a vibrant coastal city, known for its colorful streets, historic tramways, and rich maritime history.`,
+    },
   },
   {
     country: "Chorwacja",
@@ -98,6 +154,14 @@ window.travelOffers = [
       { departure: `${year}-07-03`, return: `${year}-07-10` },
       { departure: `${year}-08-12`, return: `${year}-08-19` },
     ],
+    fullOfferDescription: {
+      advantages: `A charming hotel with stunning views of the Adriatic Sea, ideal for a peaceful retreat.`,
+      location: `Just outside the Old Town, a UNESCO World Heritage Site.`,
+      beachDistance: `The beach is a short 10-minute walk from the hotel.`,
+      amenities: `Outdoor pool, spa, and walking tours of Dubrovnik’s city walls.`,
+      nearbyAttractions: `Dubrovnik Old Town, Lokrum Island, and Game of Thrones filming locations.`,
+      cityDescription: `Dubrovnik is known as the “Pearl of the Adriatic,” with its medieval city walls and crystal-clear waters.`,
+    },
   },
   {
     country: "Meksyk",
@@ -110,6 +174,14 @@ window.travelOffers = [
       { departure: `${year}-07-22`, return: `${year}-07-29` },
       { departure: `${year}-09-10`, return: `${year}-09-17` },
     ],
+    fullOfferDescription: {
+      advantages: `A luxurious resort offering private villas with direct access to the beach.`,
+      location: `Located on the famous Cancún strip, close to the lively nightlife and cultural sites.`,
+      beachDistance: `The hotel is beachfront, with stunning turquoise waters.`,
+      amenities: `RPrivate beach, multiple pools, watersports, and Mayan-themed spa.`,
+      nearbyAttractions: `Chichen Itza, Xcaret Park, and Tulum.`,
+      cityDescription: `Cancún is a tropical haven, known for its beautiful beaches, ancient Mayan ruins, and vibrant nightlife.`,
+    },
   },
   {
     country: "Malta",
@@ -122,6 +194,14 @@ window.travelOffers = [
       { departure: `${year}-07-25`, return: `${year}-08-01` },
       { departure: `${year}-09-05`, return: `${year}-09-12` },
     ],
+    fullOfferDescription: {
+      advantages: `A tranquil hotel overlooking the Mediterranean, perfect for a quiet getaway.`,
+      location: `Just a 15-minute walk from Valletta’s historic center.`,
+      beachDistance: `The nearest beach is a 20-minute drive from the hotel.`,
+      amenities: `Rooftop lounge, spa, and Mediterranean cuisine served al fresco.`,
+      nearbyAttractions: `St. John’s Co-Cathedral, Upper Barrakka Gardens, and the Grand Harbour.`,
+      cityDescription: `Valletta is a UNESCO World Heritage city, rich in history and stunning Baroque architecture.`,
+    },
   },
   {
     country: "Indonezja",
@@ -134,6 +214,14 @@ window.travelOffers = [
       { departure: `${year}-06-30`, return: `${year}-07-07` },
       { departure: `${year}-09-12`, return: `${year}-09-19` },
     ],
+    fullOfferDescription: {
+      advantages: `Experience luxurious comfort at Bamboo Grove with stunning views of Bali’s lush landscapes and pristine beaches.`,
+      location: `Situated in a serene part of Ubud, just a short drive from the cultural heart of Bali, with easy access to local markets and temples.`,
+      beachDistance: `The nearest beach is only a 30-minute drive away, offering crystal-clear waters and golden sands.`,
+      amenities: `Enjoy a private pool, spa services, and an in-house restaurant serving traditional Balinese cuisine.`,
+      nearbyAttractions: `Visit the Sacred Monkey Forest Sanctuary, Uluwatu Temple, and the famous rice terraces of Tegalalang.`,
+      cityDescription: `Bali, known for its vibrant culture and beautiful natural scenery, offers a perfect blend of relaxation and adventure in an exotic paradise.`,
+    },
   },
   {
     country: "Tajlandia",
@@ -146,6 +234,14 @@ window.travelOffers = [
       { departure: `${year}-07-10`, return: `${year}-07-17` },
       { departure: `${year}-09-20`, return: `${year}-09-27` },
     ],
+    fullOfferDescription: {
+      advantages: `Stay in luxury at Emerald Palace, where modern comfort meets traditional Thai elegance, with panoramic views of the city skyline.`,
+      location: `Located in the heart of Bangkok, near the vibrant shopping districts and historic temples.`,
+      beachDistance: `The closest beach is about 2 hours away by car, making it ideal for a day trip or a weekend getaway.`,
+      amenities: `Features include an infinity pool, world-class spa, and multiple dining options offering international and Thai cuisine.`,
+      nearbyAttractions: `Explore the Grand Palace, Wat Pho, and the bustling markets of Chatuchak.`,
+      cityDescription: `Bangkok is a bustling metropolis known for its vibrant street life, grand temples, and a wide array of shopping and dining experiences.`,
+    },
   },
   {
     country: "Australia",
@@ -158,6 +254,14 @@ window.travelOffers = [
       { departure: `${year}-07-18`, return: `${year}-07-25` },
       { departure: `${year}-09-15`, return: `${year}-09-22` },
     ],
+    fullOfferDescription: {
+      advantages: `Enjoy stunning views of Sydney Harbour and the iconic Opera House from the luxury of your room at Harbour Bliss.`,
+      location: `Perfectly situated in the heart of Sydney, offering easy access to the city’s major attractions and vibrant dining scene.`,
+      beachDistance: `Famous Bondi Beach is just a 20-minute drive away, known for its surfing and scenic coastal walks.`,
+      amenities: `Includes a rooftop terrace, fitness center, and gourmet restaurant with an extensive wine list.`,
+      nearbyAttractions: `Discover the Sydney Opera House, Harbour Bridge, and the Royal Botanic Gardens.`,
+      cityDescription: `Sydney is a dynamic city with a stunning harbor, beautiful beaches, and a thriving cultural scene.`,
+    },
   },
   {
     country: "Maroko",
@@ -170,6 +274,14 @@ window.travelOffers = [
       { departure: `${year}-07-12`, return: `${year}-07-19` },
       { departure: `${year}-09-01`, return: `${year}-09-08` },
     ],
+    fullOfferDescription: {
+      advantages: `Relax in the tranquil surroundings of Desert Rose, offering a blend of traditional Moroccan charm and modern luxury.`,
+      location: `Located in the heart of the medina, just a short walk from the famous Jemaa el-Fnaa square and the vibrant souks.`,
+      beachDistance: `The nearest beach is about a 2-hour drive away, providing a great opportunity for a day trip to the Atlantic coast.`,
+      amenities: `Features include an outdoor pool, traditional Moroccan hammam, and a restaurant serving authentic local cuisine.`,
+      nearbyAttractions: `Visit the Saadian Tombs, Koutoubia Mosque, and the Majorelle Garden.`,
+      cityDescription: `Marrakesh is known for its rich history, vibrant souks, and beautiful palaces, offering an immersive Moroccan experience.`,
+    },
   },
   {
     country: "Japonia",
@@ -182,5 +294,13 @@ window.travelOffers = [
       { departure: `${year}-08-05`, return: `${year}-08-12` },
       { departure: `${year}-09-20`, return: `${year}-09-27` },
     ],
+    fullOfferDescription: {
+      advantages: `Experience the epitome of luxury at Sakura Sky, with stunning views of Tokyo's skyline and the iconic Mount Fuji in the distance.`,
+      location: `Located in the bustling Shibuya district, close to shopping, dining, and entertainment options.`,
+      beachDistance: `The closest beach is about an hour away by train, perfect for a day of relaxation and seaside enjoyment.`,
+      amenities: `Includes a rooftop bar, state-of-the-art fitness center, and multiple dining options offering Japanese and international cuisine.`,
+      nearbyAttractions: `Explore the Shibuya Crossing, Tokyo Tower, and the historic Asakusa district.`,
+      cityDescription: `Tokyo is a vibrant metropolis blending traditional culture with cutting-edge technology, offering a unique and exciting travel experience.`,
+    },
   },
 ];
