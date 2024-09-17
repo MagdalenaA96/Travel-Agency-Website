@@ -55,19 +55,39 @@
       </section>
       <section class="hidden" id="choosen-offer">
         <h2 id="hotel-name"></h2>
-        <div>
-          <div class="my-offer-container">
-            <img src="static/images/chor-tsang-07mSKrzKiRw-unsplash.jpg" />
-            <div class="travel-details-styles">
-              <div id="travel-details-container"></div>
+        <div class="my-offer-container">
+          <img src="static/images/chor-tsang-07mSKrzKiRw-unsplash.jpg" />
+          <div class="travel-details-styles">
+            <div id="offer-details-container"></div>
+            <div id="board-select">
+              <label for="board">Board:</label>
+              <select name="board">
+                <option value="all-inclusive">All inclusive</option>
+                <option value="half-board">Half board</option>
+                <option value="no-board">No board</option>
+              </select>
+            </div>
+            <div id="guests-select">
+              <label for="guests">Number of guests:</label>
+              <select name="guests">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <p id="offer-price">Total price: <span id="total-price"></span></p>
+            <div id="book-button-place">
               <button class="main-buttons-style" id="booking-button">
                 Book
               </button>
             </div>
           </div>
-          <div id="my-offer-description"></div>
         </div>
-        <div></div>
+        <div id="my-offer-description"></div>
+      </section>
+      <section id="booking-form" class="hidden">
+        Here we will fill the form :D 
       </section>
     </main>
     <footer><p>&copy; 2024 HOLIDAY's PARADISE</p></footer>

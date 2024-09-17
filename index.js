@@ -6,6 +6,7 @@ const $offersList = document.getElementById("offers-list");
 const $choosenOffer = document.getElementById("choosen-offer");
 const $introduceSection = document.getElementById("introduce-section");
 const $myOfferDescription = document.getElementById("my-offer-description");
+const $bookingForm = document.getElementById("booking-form")
 
 function showOffers() {
   let offers = window.travelOffers;
@@ -50,12 +51,33 @@ function showOfferDetails(offer) {
   $hotelName = document.getElementById("hotel-name");
   $hotelName.innerText = `${offer.hotel}`;
 
-  $myOfferDetails = document.getElementById("travel-details-container");
+  $myOfferDetails = document.getElementById("offer-details-container");
   $myOfferDetails.innerHTML = ``;
-  $myOfferDetails.innerHTML = `<h3>${offer.hotel}</h3>
+
+  let leftSideDetails = document.createElement("div");
+  leftSideDetails.classList.add("left-side-details");
+  $myOfferDetails.appendChild(leftSideDetails);
+  leftSideDetails.innerHTML = `<h3>${offer.hotel}</h3>
     <h4>${offer.country}, ${offer.city}</h4>
-    <p>${offer.dates[0].departure} - ${offer.dates[0].return}</p>
-    <p class="price-style">${offer.price} zł <span>/os</span></p>`;
+    <p>Transport: ${offer.transport}</p>`;
+
+  let labelForSelectDate = document.createElement("label");
+  labelForSelectDate.for = "select-date";
+  labelForSelectDate.innerText = "Date: ";
+  let selectDate = document.createElement("select");
+  selectDate.name = "select-date";
+  offer.dates.forEach((date) => {
+    let option = document.createElement("option");
+    option.textContent = `${date.departure} - ${date.return}`;
+    selectDate.appendChild(option);
+  });
+
+  leftSideDetails.appendChild(labelForSelectDate);
+  leftSideDetails.appendChild(selectDate);
+
+  let onePersonPrice = document.createElement("div");
+  onePersonPrice.innerHTML = `<p class="price-style" id="person-price">${offer.price} zł <span>/os</span></p>`;
+  $myOfferDetails.appendChild(onePersonPrice);
 
   $myOfferDescription.innerHTML = `
   <p><span>Hotel's advantages:</span> ${offer.fullOfferDescription.advantages}<br>
@@ -65,4 +87,16 @@ function showOfferDetails(offer) {
   <span>Nearby Attractions:</span> ${offer.fullOfferDescription.nearbyAttractions}<br>
   <span>City Description:</span> ${offer.fullOfferDescription.cityDescription}<br>
   </p`;
+
+  const $bookingButton = document.getElementById("booking-button");
+  $bookingButton.addEventListener("click", () => {
+    bookOffer(offer);
+  });
+
+  return { offer: offer };
+}
+
+function bookOffer(offer) {
+  $choosenOffer.classList.toggle("hidden");
+  $bookingForm.classList.toggle("hidden")
 }

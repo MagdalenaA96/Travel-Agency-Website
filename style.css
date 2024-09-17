@@ -123,7 +123,19 @@ main section h2 {
   font-size: 28px;
 }
 
-main p {
+main h3 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+main h4 {
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+main p,
+main select,
+main label {
   font-size: 20px;
   line-height: 1.5;
 }
@@ -171,22 +183,39 @@ main p {
   width: 100%;
   margin: 5px 20px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: start;
-  justify-content: space-between;
   border: 1px solid gray;
 }
 
-#travel-details-container {
-    width: 100%;
+#offer-details-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-side-details {
+  max-width: 300px;
+}
+
+#person-price {
+  margin-top: 0;
+  font-size: 28px;
 }
 
 #booking-button {
-    width: 90%;
-    height: 60px;
-    font-size: 26px;
+  width: 90%;
+  height: 60px;
+  font-size: 26px;
+}
+
+#book-button-place {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#my-offer-description span {
+  font-weight: bold;
 }
 
 footer {

@@ -3,11 +3,11 @@ const year = date.getFullYear() + 1;
 
 window.travelOffers = [
   {
-    country: "Hiszpania",
+    country: "Spain",
     city: "Barcelona",
     price: 3000,
     hotel: "Mirador del Sol",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-06-15`, return: `${year}-06-22` },
       { departure: `${year}-07-01`, return: `${year}-07-08` },
@@ -24,11 +24,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Włochy",
-    city: "Rzym",
+    country: "Italy",
+    city: "Rome",
     price: 3500,
     hotel: "Roman Villa",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-05-10`, return: `${year}-05-17` },
       { departure: `${year}-06-22`, return: `${year}-06-29` },
@@ -44,11 +44,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Francja",
-    city: "Paryż",
+    country: "France",
+    city: "Paris",
     price: 4000,
     hotel: "Château Lumière",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-04-18`, return: `${year}-04-25` },
       { departure: `${year}-06-05`, return: `${year}-06-12` },
@@ -64,11 +64,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Grecja",
-    city: "Ateny",
+    country: "Greece",
+    city: "Athens",
     price: 3200,
     hotel: "Parthenon View",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-05-20`, return: `${year}-05-27` },
       { departure: `${year}-07-10`, return: `${year}-07-17` },
@@ -84,11 +84,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Turcja",
+    country: "Turkey",
     city: "Antalya",
     price: 2800,
     hotel: "Golden Sands",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-05-12`, return: `${year}-05-19` },
       { departure: `${year}-07-01`, return: `${year}-07-08` },
@@ -104,11 +104,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Egipt",
+    country: "Egypt",
     city: "Hurghada",
     price: 2500,
     hotel: "Nile Oasis",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-05-05`, return: `${year}-05-12` },
       { departure: `${year}-07-15`, return: `${year}-07-22` },
@@ -124,11 +124,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Portugalia",
-    city: "Lizbona",
+    country: "Portugal",
+    city: "Lisbon",
     price: 3400,
     hotel: "Lisbon Heights",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-06-08`, return: `${year}-06-15` },
       { departure: `${year}-08-20`, return: `${year}-08-27` },
@@ -144,11 +144,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Chorwacja",
-    city: "Dubrownik",
+    country: "Croatia",
+    city: "Dubrovnik",
     price: 2900,
     hotel: "Adriatic Pearl",
-    transport: "Autokar",
+    transport: "Coach",
     dates: [
       { departure: `${year}-05-18`, return: `${year}-05-25` },
       { departure: `${year}-07-03`, return: `${year}-07-10` },
@@ -164,11 +164,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Meksyk",
+    country: "Mexico",
     city: "Cancún",
     price: 4500,
     hotel: "Maya Dreams",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-05-25`, return: `${year}-06-01` },
       { departure: `${year}-07-22`, return: `${year}-07-29` },
@@ -188,7 +188,7 @@ window.travelOffers = [
     city: "Valletta",
     price: 3300,
     hotel: "Seaside Retreat",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-06-15`, return: `${year}-06-22` },
       { departure: `${year}-07-25`, return: `${year}-08-01` },
@@ -204,11 +204,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Indonezja",
+    country: "Indonesia",
     city: "Bali",
     price: 5000,
     hotel: "Bamboo Grove",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-05-12`, return: `${year}-05-19` },
       { departure: `${year}-06-30`, return: `${year}-07-07` },
@@ -224,11 +224,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Tajlandia",
+    country: "Thailand",
     city: "Bangkok",
     price: 3800,
     hotel: "Emerald Palace",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-06-01`, return: `${year}-06-08` },
       { departure: `${year}-07-10`, return: `${year}-07-17` },
@@ -248,7 +248,7 @@ window.travelOffers = [
     city: "Sydney",
     price: 6000,
     hotel: "Harbour Bliss",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-06-05`, return: `${year}-06-12` },
       { departure: `${year}-07-18`, return: `${year}-07-25` },
@@ -264,11 +264,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Maroko",
-    city: "Marrakesz",
+    country: "Morocco",
+    city: "Marrakesh",
     price: 3100,
     hotel: "Desert Rose",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-05-22`, return: `${year}-05-29` },
       { departure: `${year}-07-12`, return: `${year}-07-19` },
@@ -284,11 +284,11 @@ window.travelOffers = [
     },
   },
   {
-    country: "Japonia",
+    country: "Japan",
     city: "Tokio",
     price: 5500,
     hotel: "Sakura Sky",
-    transport: "Samolot",
+    transport: "Flight",
     dates: [
       { departure: `${year}-06-10`, return: `${year}-06-17` },
       { departure: `${year}-08-05`, return: `${year}-08-12` },
