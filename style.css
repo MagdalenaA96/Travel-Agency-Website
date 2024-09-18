@@ -218,6 +218,14 @@ main label {
   font-weight: bold;
 }
 
+.form-style {
+  margin: 0 auto;
+  padding: 15px;
+  width: 80%;
+  background-color: whitesmoke;
+  border: solid 2px gray;
+}
+
 footer {
   display: flex;
   justify-content: center;

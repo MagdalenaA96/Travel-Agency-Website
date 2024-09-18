@@ -61,15 +61,15 @@
             <div id="offer-details-container"></div>
             <div id="board-select">
               <label for="board">Board:</label>
-              <select name="board">
-                <option value="all-inclusive">All inclusive</option>
-                <option value="half-board">Half board</option>
-                <option value="no-board">No board</option>
+              <select name="board" id="board">
+                <option value="0">All inclusive</option>
+                <option value="400">Half board</option>
+                <option value="1000">No board</option>
               </select>
             </div>
             <div id="guests-select">
               <label for="guests">Number of guests:</label>
-              <select name="guests">
+              <select name="guests" id="guests">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -87,7 +87,32 @@
         <div id="my-offer-description"></div>
       </section>
       <section id="booking-form" class="hidden">
-        Here we will fill the form :D 
+        <form action="" class="form-style">
+          <h2>Booking Form</h2>
+          <label for="name">First name: </label>
+          <input type="text" id="name" name="name" /><br /><br />
+          <label for="surname">Surname: </label>
+          <input type="text" id="surname" name="surname" /><br /><br />
+          <label for="email">E-mail: </label>
+          <input type="email" id="email" name="email" /><br /><br />
+          <label for="phone-number">Phone number: </label>
+          <input
+            type="number"
+            id="phone-number"
+            name="phone-number"
+          /><br /><br />
+          <p>Method of payment:</p>
+          <input type="radio" id="cash" name="payment-method" value="cash" />
+          <label for="cash">Cash payment at the office</label><br />
+          <input
+            type="radio"
+            id="bank-transfer"
+            name="payment-method"
+            value="bank-transfer"
+          />
+          <label for="bank-transfer">Bank transfer</label><br />
+          <button type="submit">Submit</button>
+        </form>
       </section>
     </main>
     <footer><p>&copy; 2024 HOLIDAY's PARADISE</p></footer>

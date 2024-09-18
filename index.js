@@ -6,7 +6,7 @@ const $offersList = document.getElementById("offers-list");
 const $choosenOffer = document.getElementById("choosen-offer");
 const $introduceSection = document.getElementById("introduce-section");
 const $myOfferDescription = document.getElementById("my-offer-description");
-const $bookingForm = document.getElementById("booking-form")
+const $bookingForm = document.getElementById("booking-form");
 
 function showOffers() {
   let offers = window.travelOffers;
@@ -88,6 +88,8 @@ function showOfferDetails(offer) {
   <span>City Description:</span> ${offer.fullOfferDescription.cityDescription}<br>
   </p`;
 
+  showTotalPrice(offer);
+
   const $bookingButton = document.getElementById("booking-button");
   $bookingButton.addEventListener("click", () => {
     bookOffer(offer);
@@ -96,7 +98,29 @@ function showOfferDetails(offer) {
   return { offer: offer };
 }
 
+function showTotalPrice(offer) {
+  const $totalPrice = document.getElementById("total-price");
+  $totalPrice.innerText = ``;
+
+  const $selectedBoard = document.getElementById("board");
+  $selectedBoard.addEventListener("change", calcTotalPrice);
+
+  const $selectedGuestsNumber = document.getElementById("guests");
+  $selectedGuestsNumber.addEventListener("change", calcTotalPrice);
+
+  function calcTotalPrice() {
+    const foodPrice = $selectedBoard.value;
+    const guestsPrice = $selectedGuestsNumber.value;
+    let result =
+      (parseFloat(offer.price) - parseFloat(foodPrice)) *
+      parseFloat(guestsPrice);
+    $totalPrice.innerText = `${result} zł`;
+  }
+
+  calcTotalPrice();
+}
+
 function bookOffer(offer) {
   $choosenOffer.classList.toggle("hidden");
-  $bookingForm.classList.toggle("hidden")
+  $bookingForm.classList.toggle("hidden");
 }
