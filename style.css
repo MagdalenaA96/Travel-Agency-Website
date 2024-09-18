@@ -226,6 +226,13 @@ main label {
   border: solid 2px gray;
 }
 
+.error {
+  height: 15px;
+  color: red;
+  font-size: 12px;
+  margin: 0;
+}
+
 footer {
   display: flex;
   justify-content: center;

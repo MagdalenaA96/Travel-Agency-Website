@@ -90,17 +90,30 @@
         <form action="" class="form-style">
           <h2>Booking Form</h2>
           <label for="name">First name: </label>
-          <input type="text" id="name" name="name" /><br /><br />
+          <input class="booking-input" type="text" id="name" name="name" />
+          <p id="name-error" class="error"></p>
           <label for="surname">Surname: </label>
-          <input type="text" id="surname" name="surname" /><br /><br />
+          <input
+            class="booking-input"
+            type="text"
+            id="surname"
+            name="surname"
+          />
+          <p id="surname-error" class="error"></p>
+
           <label for="email">E-mail: </label>
-          <input type="email" id="email" name="email" /><br /><br />
+          <input class="booking-input" type="email" id="email" name="email" />
+          <p id="email-error" class="error"></p>
+
           <label for="phone-number">Phone number: </label>
           <input
-            type="number"
+            class="booking-input"
+            type="tel"
+            pattern="[0-9]{9}"
             id="phone-number"
             name="phone-number"
-          /><br /><br />
+          />
+          <p id="phone-number-error" class="error"></p>
           <p>Method of payment:</p>
           <input type="radio" id="cash" name="payment-method" value="cash" />
           <label for="cash">Cash payment at the office</label><br />
@@ -111,8 +124,19 @@
             value="bank-transfer"
           />
           <label for="bank-transfer">Bank transfer</label><br />
+          <p id="payment-method-error" class="error"></p>
+          <br />
+          <p>
+            Within 2 weeks, you must pay for the reservation (30% of the total
+            trip cost) using the method you selected in the form. Otherwise,
+            your reservation will be canceled.
+          </p>
+          <br />
           <button type="submit">Submit</button>
         </form>
+      </section>
+      <section id="confirmation-form" class="hidden">
+        <h2>Confirmation Form</h2>
       </section>
     </main>
     <footer><p>&copy; 2024 HOLIDAY's PARADISE</p></footer>

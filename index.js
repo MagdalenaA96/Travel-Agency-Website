@@ -7,6 +7,8 @@ const $choosenOffer = document.getElementById("choosen-offer");
 const $introduceSection = document.getElementById("introduce-section");
 const $myOfferDescription = document.getElementById("my-offer-description");
 const $bookingForm = document.getElementById("booking-form");
+$bookingInputs = document.getElementsByClassName("booking-input");
+$bookingInputsErrors = document.getElementsByClassName("error");
 
 function showOffers() {
   let offers = window.travelOffers;
@@ -123,4 +125,44 @@ function showTotalPrice(offer) {
 function bookOffer(offer) {
   $choosenOffer.classList.toggle("hidden");
   $bookingForm.classList.toggle("hidden");
+
+  Array.from($bookingInputs).forEach((input, i) => {
+    input.addEventListener("focusin", () => {
+      $bookingInputsErrors[i].innerText = "";
+    });
+    input.addEventListener("focusout", () => {
+      if (input.value.trim() === "") {
+        $bookingInputsErrors[i].innerHTML = "This field is required";
+      } else if (
+        (i === 0 || i === 1) &&
+        (input.value.length < 2 || /[^a-zA-Z\s]/.test(input.value))
+      ) {
+        $bookingInputsErrors[i].innerText = "Type valid information";
+      } else if (
+        i === 2 &&
+        !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(input.value)
+      ) {
+        $bookingInputsErrors[i].innerHTML = "Invalid e-mail address.";
+      } else if (i === 3 && !input.checkValidity()) {
+        $bookingInputsErrors[i].innerHTML = "Invalid phone number";
+      }
+    });
+  });
+
+  $bookingForm.addEventListener("submit", sendBookingForm);
+}
+
+function sendBookingForm(event) {
+  event.preventDefault();
+  let allInputsValid = true;
+
+  Array.from($bookingInputs).forEach((input, i) => {
+    if (input.value === "" && $bookingInputsErrors[i].innerHTML !== "") {
+      allInputsValid = false;
+    }
+  });
+
+  if (allInputsValid) {
+    console.log("Udało się!");
+  }
 }
