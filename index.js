@@ -7,8 +7,10 @@ const $choosenOffer = document.getElementById("choosen-offer");
 const $introduceSection = document.getElementById("introduce-section");
 const $myOfferDescription = document.getElementById("my-offer-description");
 const $bookingForm = document.getElementById("booking-form");
-$bookingInputs = document.getElementsByClassName("booking-input");
-$bookingInputsErrors = document.getElementsByClassName("error");
+const $bookingInputs = document.getElementsByClassName("booking-input");
+const $bookingInputsErrors = document.getElementsByClassName("error");
+const $paymentMethodContainer = document.getElementById("payment-methods");
+const $paymentMethodError = document.getElementById("payment-method-error");
 
 function showOffers() {
   let offers = window.travelOffers;
@@ -149,6 +151,12 @@ function bookOffer(offer) {
     });
   });
 
+  $paymentMethodContainer.addEventListener("change", (event) => {
+    if (event.target.name === "payment-method") {
+      $paymentMethodError.innerText = "";
+    }
+  });
+
   $bookingForm.addEventListener("submit", sendBookingForm);
 }
 
@@ -156,8 +164,16 @@ function sendBookingForm(event) {
   event.preventDefault();
   let allInputsValid = true;
 
+  const $cashPayment = document.getElementById("cash");
+  const $bankTransferPayment = document.getElementById("bank-transfer");
+
+  if (!$cashPayment.checked && !$bankTransferPayment.checked) {
+    $paymentMethodError.innerHTML = "Check the payment method";
+    allInputsValid = false;
+  }
+
   Array.from($bookingInputs).forEach((input, i) => {
-    if (input.value === "" && $bookingInputsErrors[i].innerHTML !== "") {
+    if (input.value === "" || $bookingInputsErrors[i].innerHTML !== "") {
       allInputsValid = false;
     }
   });
