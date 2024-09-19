@@ -166,6 +166,9 @@ function bookOffer(offer, bookingDetails) {
   $choosenOffer.classList.toggle("hidden");
   $bookingForm.classList.toggle("hidden");
 
+  $bookingForm.removeEventListener("submit", handleSubmit);
+  $bookingForm.addEventListener("submit", handleSubmit);
+
   bookingInputsArr.forEach((input, i) => {
     input.addEventListener("focusin", () => {
       $bookingInputsErrors[i].innerText = "";
@@ -197,18 +200,23 @@ function bookOffer(offer, bookingDetails) {
     }
   });
 
-  $bookingForm.addEventListener("submit", (event) => {
+  function handleSubmit(event) {
     sendBookingForm(event, offer, bookingDetails);
-  });
+  }
 }
 
-// const $backToOfferDetailsBtn = document.getElementById("back-button-booking");
-// $backToOfferDetailsBtn.addEventListener("click", backToOfferDetails);
+const $backToOfferDetailsBtn = document.getElementById("back-button-booking");
+$backToOfferDetailsBtn.addEventListener("click", backToOfferDetails);
 
-// function backToOfferDetails() {
-//   $choosenOffer.classList.toggle("hidden");
-//   $bookingForm.classList.toggle("hidden");
-// }
+function backToOfferDetails() {
+  $choosenOffer.classList.toggle("hidden");
+  $bookingForm.classList.toggle("hidden");
+
+  bookingInputsArr.forEach((input, i) => {
+    $bookingInputsErrors[i].innerText = "";
+  });
+  $paymentMethodError.innerText = "";
+}
 
 function sendBookingForm(event, offer, bookingDetails) {
   event.preventDefault();
