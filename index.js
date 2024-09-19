@@ -11,6 +11,7 @@ const $bookingInputs = document.getElementsByClassName("booking-input");
 const $bookingInputsErrors = document.getElementsByClassName("error");
 const $paymentMethodContainer = document.getElementById("payment-methods");
 const $paymentMethodError = document.getElementById("payment-method-error");
+const $confirmationForm = document.getElementById("confirmation-form");
 
 function showOffers() {
   let offers = window.travelOffers;
@@ -52,10 +53,10 @@ function showOfferDetails(offer) {
   $offersList.classList.toggle("hidden");
   $introduceSection.classList.toggle("hidden");
 
-  $hotelName = document.getElementById("hotel-name");
+  const $hotelName = document.getElementById("hotel-name");
   $hotelName.innerText = `${offer.hotel}`;
 
-  $myOfferDetails = document.getElementById("offer-details-container");
+  const $myOfferDetails = document.getElementById("offer-details-container");
   $myOfferDetails.innerHTML = ``;
 
   let leftSideDetails = document.createElement("div");
@@ -96,7 +97,13 @@ function showOfferDetails(offer) {
 
   const $bookingButton = document.getElementById("booking-button");
   $bookingButton.addEventListener("click", () => {
-    bookOffer(offer);
+    const finalCost = parseFloat(
+      document.getElementById("total-price").innerText
+    );
+  // const choosenDate = offer.dates.forEach(date)
+  
+    const bookingDetails = {price: finalCost};
+    bookOffer(offer, bookingDetails);
   });
 
   return { offer: offer };
@@ -119,12 +126,13 @@ function showTotalPrice(offer) {
       (parseFloat(offer.price) - parseFloat(foodPrice)) *
       parseFloat(guestsPrice);
     $totalPrice.innerText = `${result} zł`;
+    return result;
   }
 
   calcTotalPrice();
 }
 
-function bookOffer(offer) {
+function bookOffer(offer, bookingDetails) {
   $choosenOffer.classList.toggle("hidden");
   $bookingForm.classList.toggle("hidden");
 
@@ -157,10 +165,12 @@ function bookOffer(offer) {
     }
   });
 
-  $bookingForm.addEventListener("submit", sendBookingForm);
+  $bookingForm.addEventListener("submit", (event) => {
+    sendBookingForm(event, offer, bookingDetails);
+  });
 }
 
-function sendBookingForm(event) {
+function sendBookingForm(event, offer, bookingDetails) {
   event.preventDefault();
   let allInputsValid = true;
 
@@ -179,6 +189,16 @@ function sendBookingForm(event) {
   });
 
   if (allInputsValid) {
-    console.log("Udało się!");
+    showConfirmationForm(offer, bookingDetails);
   }
+}
+
+function showConfirmationForm(offer, bookingDetails) {
+  $bookingForm.classList.toggle("hidden");
+  $confirmationForm.classList.toggle("hidden");
+  let bookingCost = ((0.3 * 10 * bookingDetails.price) / 10).toFixed(0);
+
+  const $offerSummary = document.getElementById("offer-summary");
+  $offerSummary.innerHTML = `<p> You have booked a stay at <strong>${offer.hotel} hotel in ${offer.city} in ${offer.country}</strong> for <strong>3 people</strong> from <strong>July 7th, 2025</strong> to <strong>July 14th, 2025</strong> with <strong>all-inclusive board</strong>. The total amount due is <strong>${bookingDetails.price} PLN</strong>. You have selected <strong>cash</strong> as your payment method. Please remember to pay 30% of this amount <strong>(${bookingCost} zł)</strong> within two weeks. The rest of the necessary information regarding your booking will be sent via email.<br><br>
+  Thank you for choosing our services! We hope your vacation with us will be unforgettable!</p>`;
 }
