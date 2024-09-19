@@ -201,13 +201,13 @@ main label {
   font-size: 28px;
 }
 
-#booking-button {
+.booking-buttons {
   width: 90%;
   height: 60px;
   font-size: 26px;
 }
 
-#book-button-place {
+.book-button-place {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -221,9 +221,18 @@ main label {
 .form-style {
   margin: 0 auto;
   padding: 15px;
-  width: 80%;
-  background-color: whitesmoke;
-  border: solid 2px gray;
+  width: 70%;
+  background-color: white;
+  border:dashed 2px gray;
+  border-radius: 0 70px 0 70px;
+}
+
+.form-style h2 {
+  margin-bottom: 15px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .error {
@@ -231,6 +240,35 @@ main label {
   color: red;
   font-size: 12px;
   margin: 0;
+}
+
+.italic-style {
+  font-style: italic;
+}
+
+#booking-form input {
+  border: none;
+  border-bottom: solid 1px rgb(143, 139, 139);
+  font-size: 20px;
+}
+
+.form-style button {
+  width: 70%;
+}
+
+.back-button {
+  font-size: 20px;
+  color: rgb(153, 1, 1);
+  background-color: azure;
+  border: none;
+}
+
+#back-button-booking {
+  margin-bottom: 30px;
+}
+
+#back-to-homepage {
+  margin-top: 40px;
 }
 
 footer {

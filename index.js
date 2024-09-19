@@ -10,10 +10,12 @@ const $selectedBoard = document.getElementById("board");
 const $selectedGuestsNumber = document.getElementById("guests");
 const $bookingForm = document.getElementById("booking-form");
 const $bookingInputs = document.getElementsByClassName("booking-input");
+const bookingInputsArr = Array.from($bookingInputs);
 const $bookingInputsErrors = document.getElementsByClassName("error");
 const $paymentMethodContainer = document.getElementById("payment-methods");
 const $paymentMethodError = document.getElementById("payment-method-error");
 const $confirmationForm = document.getElementById("confirmation-form");
+let saveOfferHandler = null;
 
 function showOffers() {
   let offers = window.travelOffers;
@@ -98,7 +100,15 @@ function showOfferDetails(offer) {
   showTotalPrice(offer);
 
   const $bookingButton = document.getElementById("booking-button");
-  $bookingButton.addEventListener("click", () => {
+
+  if (saveOfferHandler) {
+    $bookingButton.removeEventListener("click", saveOfferHandler);
+  }
+
+  saveOfferHandler = () => saveOfferDetails(offer);
+  $bookingButton.addEventListener("click", saveOfferHandler);
+
+  function saveOfferDetails(offer) {
     let choosenBoard =
       $selectedBoard.options[
         $selectedBoard.selectedIndex
@@ -119,10 +129,17 @@ function showOfferDetails(offer) {
     };
 
     bookOffer(offer, bookingDetails);
-  });
+  }
 
   return { offer: offer };
 }
+
+const $backToOffersButton = document.getElementById("back-button-offer");
+$backToOffersButton.addEventListener("click", () => {
+  $choosenOffer.classList.toggle("hidden");
+  $offersList.classList.toggle("hidden");
+  $introduceSection.classList.toggle("hidden");
+});
 
 function showTotalPrice(offer) {
   const $totalPrice = document.getElementById("total-price");
@@ -149,7 +166,7 @@ function bookOffer(offer, bookingDetails) {
   $choosenOffer.classList.toggle("hidden");
   $bookingForm.classList.toggle("hidden");
 
-  Array.from($bookingInputs).forEach((input, i) => {
+  bookingInputsArr.forEach((input, i) => {
     input.addEventListener("focusin", () => {
       $bookingInputsErrors[i].innerText = "";
     });
@@ -185,6 +202,14 @@ function bookOffer(offer, bookingDetails) {
   });
 }
 
+// const $backToOfferDetailsBtn = document.getElementById("back-button-booking");
+// $backToOfferDetailsBtn.addEventListener("click", backToOfferDetails);
+
+// function backToOfferDetails() {
+//   $choosenOffer.classList.toggle("hidden");
+//   $bookingForm.classList.toggle("hidden");
+// }
+
 function sendBookingForm(event, offer, bookingDetails) {
   event.preventDefault();
   let allInputsValid = true;
@@ -197,9 +222,10 @@ function sendBookingForm(event, offer, bookingDetails) {
     allInputsValid = false;
   }
 
-  Array.from($bookingInputs).forEach((input, i) => {
+  bookingInputsArr.forEach((input, i) => {
     if (input.value === "" || $bookingInputsErrors[i].innerHTML !== "") {
       allInputsValid = false;
+      $bookingInputsErrors[i].innerHTML = "This field is required";
     }
   });
 
@@ -214,6 +240,6 @@ function showConfirmationForm(offer, bookingDetails) {
   let bookingCost = ((0.3 * 10 * bookingDetails.price) / 10).toFixed(0);
 
   const $offerSummary = document.getElementById("offer-summary");
-  $offerSummary.innerHTML = `<p> You have booked a stay at the <strong>${offer.hotel} hotel in ${offer.city}, ${offer.country},</strong> for <strong>${bookingDetails.guests} people</strong> from <strong>${bookingDetails.date}</strong> with <strong>${bookingDetails.board}</strong>. The total amount due is <strong>${bookingDetails.price} PLN</strong>. You have selected <strong>${bookingDetails.paymentMethod}</strong> as your payment method. Please remember to pay 30% of this amount <strong>(${bookingCost} zł)</strong> within two weeks. The rest of the necessary information regarding your booking will be sent via email.<br><br>
+  $offerSummary.innerHTML = `<p> You have booked a stay at the <strong>${offer.hotel} hotel in ${offer.city}, ${offer.country},</strong> for <strong>${bookingDetails.guests} person/s</strong> from <strong>${bookingDetails.date}</strong> with <strong>${bookingDetails.board}</strong>. The total amount due is <strong>${bookingDetails.price} PLN</strong>. You have selected <strong>${bookingDetails.paymentMethod}</strong> as your payment method. Please remember to pay 30% of this amount - <strong>${bookingCost} PLN</strong> within two weeks. The rest of the necessary information regarding your booking will be sent via email.<br><br>
   Thank you for choosing our services! We hope your vacation with us will be unforgettable!</p>`;
 }
