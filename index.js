@@ -17,6 +17,8 @@ const $paymentMethodError = document.getElementById("payment-method-error");
 const $confirmationForm = document.getElementById("confirmation-form");
 const $reservationForm = document.getElementById("reservation-form");
 let saveOfferHandler = null;
+const bookingDetails = {};
+let selectedOffer = null;
 
 function showOffers() {
   let offers = window.travelOffers;
@@ -46,10 +48,10 @@ function showOffers() {
     $offersList.appendChild(offerDiv);
 
     offerDiv.addEventListener("click", () => {
-      showOfferDetails(offer);
+      selectedOffer = offer;
+      console.log(selectedOffer);
+      showOfferDetails(selectedOffer);
     });
-
-    return { offer: offer, offerDiv: offerDiv };
   });
 }
 
@@ -98,7 +100,7 @@ function showOfferDetails(offer) {
   <span>City Description:</span> ${offer.fullOfferDescription.cityDescription}<br>
   </p`;
 
-  showTotalPrice(offer);
+  showTotalPrice(selectedOffer);
 
   const $bookingButton = document.getElementById("booking-button");
 
@@ -109,7 +111,7 @@ function showOfferDetails(offer) {
   saveOfferHandler = () => saveOfferDetails(offer);
   $bookingButton.addEventListener("click", saveOfferHandler);
 
-  function saveOfferDetails(offer) {
+  function saveOfferDetails(selectedOffer) {
     let choosenBoard =
       $selectedBoard.options[
         $selectedBoard.selectedIndex
@@ -122,17 +124,13 @@ function showOfferDetails(offer) {
       selectDate.selectedIndex
     ].textContent.replace(" - ", " to ");
 
-    const bookingDetails = {
-      date: choosenDate,
-      board: choosenBoard,
-      guests: guestsNumber,
-      price: finalCost,
-    };
+    bookingDetails.date = choosenDate;
+    bookingDetails.board = choosenBoard;
+    bookingDetails.guests = guestsNumber;
+    bookingDetails.price = finalCost;
 
-    bookOffer(offer, bookingDetails);
+    bookOffer(selectedOffer, bookingDetails);
   }
-
-  return { offer: offer };
 }
 
 const $backToOffersButton = document.getElementById("back-button-offer");
@@ -167,9 +165,6 @@ function bookOffer(offer, bookingDetails) {
   $choosenOffer.classList.toggle("hidden");
   $bookingForm.classList.toggle("hidden");
 
-  $reservationForm.removeEventListener("submit", handleSubmit);
-  $reservationForm.addEventListener("submit", handleSubmit);
-
   bookingInputsArr.forEach((input, i) => {
     input.addEventListener("focusin", () => {
       $bookingInputsErrors[i].innerText = "";
@@ -200,12 +195,12 @@ function bookOffer(offer, bookingDetails) {
       bookingDetails.paymentMethod = choosenPaymentMethod;
     }
   });
-
-  function handleSubmit(event) {
-    sendBookingForm(event, offer, bookingDetails);
-  }
 }
 
+$reservationForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  sendBookingForm(bookingDetails);
+});
 const $backToOfferDetailsBtn = document.getElementById("back-button-booking");
 $backToOfferDetailsBtn.addEventListener("click", backToOfferDetails);
 
@@ -219,8 +214,7 @@ function backToOfferDetails() {
   $paymentMethodError.innerText = "";
 }
 
-function sendBookingForm(event, offer, bookingDetails) {
-  event.preventDefault();
+function sendBookingForm(offer) {
   let allInputsValid = true;
 
   const $cashPayment = document.getElementById("cash");
@@ -239,7 +233,8 @@ function sendBookingForm(event, offer, bookingDetails) {
   });
 
   if (allInputsValid) {
-    showConfirmationForm(offer, bookingDetails);
+    showConfirmationForm(selectedOffer, bookingDetails);
+    console.log(bookingDetails);
   }
 }
 
@@ -249,7 +244,7 @@ function showConfirmationForm(offer, bookingDetails) {
   let bookingCost = ((0.3 * 10 * bookingDetails.price) / 10).toFixed(0);
 
   const $offerSummary = document.getElementById("offer-summary");
-  $offerSummary.innerHTML = `<p> You have booked a stay at the <strong>${offer.hotel} hotel in ${offer.city}, ${offer.country},</strong> for <strong>${bookingDetails.guests} person/s</strong> from <strong>${bookingDetails.date}</strong> with <strong>${bookingDetails.board}</strong>. The total amount due is <strong>${bookingDetails.price} PLN</strong>. You have selected <strong>${bookingDetails.paymentMethod}</strong> as your payment method. Please remember to pay 30% of this amount - <strong>${bookingCost} PLN</strong> within two weeks. The rest of the necessary information regarding your booking will be sent via email.<br><br>
+  $offerSummary.innerHTML = `<p> You have booked a stay at the <strong>${selectedOffer.hotel} hotel in ${selectedOffer.city}, ${selectedOffer.country},</strong> for <strong>${bookingDetails.guests} person/s</strong> from <strong>${bookingDetails.date}</strong> with <strong>${bookingDetails.board}</strong>. The total amount due is <strong>${bookingDetails.price} PLN</strong>. You have selected <strong>${bookingDetails.paymentMethod}</strong> as your payment method. Please remember to pay 30% of this amount - <strong>${bookingCost} PLN</strong> within two weeks. The rest of the necessary information regarding your booking will be sent via email.<br><br>
   Thank you for choosing our services! We hope your vacation with us will be unforgettable!</p>`;
 }
 
@@ -260,6 +255,7 @@ $backToHomePageBtn.addEventListener("click", () => {
   $introduceSection.classList.toggle("hidden");
 
   $reservationForm.reset();
+  selectedOffer = null;
 
   bookingInputsArr.forEach((input, i) => {
     $bookingInputsErrors[i].innerText = "";
