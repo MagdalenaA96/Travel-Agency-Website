@@ -15,6 +15,7 @@ const $bookingInputsErrors = document.getElementsByClassName("error");
 const $paymentMethodContainer = document.getElementById("payment-methods");
 const $paymentMethodError = document.getElementById("payment-method-error");
 const $confirmationForm = document.getElementById("confirmation-form");
+const $reservationForm = document.getElementById("reservation-form");
 let saveOfferHandler = null;
 
 function showOffers() {
@@ -166,8 +167,8 @@ function bookOffer(offer, bookingDetails) {
   $choosenOffer.classList.toggle("hidden");
   $bookingForm.classList.toggle("hidden");
 
-  $bookingForm.removeEventListener("submit", handleSubmit);
-  $bookingForm.addEventListener("submit", handleSubmit);
+  $reservationForm.removeEventListener("submit", handleSubmit);
+  $reservationForm.addEventListener("submit", handleSubmit);
 
   bookingInputsArr.forEach((input, i) => {
     input.addEventListener("focusin", () => {
@@ -251,3 +252,17 @@ function showConfirmationForm(offer, bookingDetails) {
   $offerSummary.innerHTML = `<p> You have booked a stay at the <strong>${offer.hotel} hotel in ${offer.city}, ${offer.country},</strong> for <strong>${bookingDetails.guests} person/s</strong> from <strong>${bookingDetails.date}</strong> with <strong>${bookingDetails.board}</strong>. The total amount due is <strong>${bookingDetails.price} PLN</strong>. You have selected <strong>${bookingDetails.paymentMethod}</strong> as your payment method. Please remember to pay 30% of this amount - <strong>${bookingCost} PLN</strong> within two weeks. The rest of the necessary information regarding your booking will be sent via email.<br><br>
   Thank you for choosing our services! We hope your vacation with us will be unforgettable!</p>`;
 }
+
+const $backToHomePageBtn = document.getElementById("back-to-homepage");
+$backToHomePageBtn.addEventListener("click", () => {
+  $confirmationForm.classList.toggle("hidden");
+  $offersList.classList.toggle("hidden");
+  $introduceSection.classList.toggle("hidden");
+
+  $reservationForm.reset();
+
+  bookingInputsArr.forEach((input, i) => {
+    $bookingInputsErrors[i].innerText = "";
+  });
+  $paymentMethodError.innerText = "";
+});
