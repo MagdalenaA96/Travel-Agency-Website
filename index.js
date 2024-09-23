@@ -67,12 +67,27 @@ function createOfferBox(offer) {
   });
 }
 
+$searchButton.addEventListener("mouseenter", function () {
+  this.style.cursor = "pointer";
+});
+
 $searchButton.addEventListener("click", () => {
   const searchTerm = $searchInput.value.toLowerCase();
   filterOffers(searchTerm);
 });
 
 function filterOffers(searchTerm) {
+  const screens = [$choosenOffer, $bookingForm, $confirmationForm];
+  screens.forEach((screen) => {
+    if (!screen.classList.contains("hidden")) {
+      screen.classList.add("hidden");
+    }
+  });
+
+  if ($offersList.classList.contains("hidden")) {
+    $offersList.classList.remove("hidden");
+  }
+
   $offersList.innerHTML = ``;
 
   let foundOffers = offers.filter(
@@ -81,7 +96,7 @@ function filterOffers(searchTerm) {
       offer.city.toLowerCase().includes(searchTerm)
   );
   if (foundOffers.length === 0) {
-    $offersList.innerHTML = "<p>No offers found<p>";
+    $offersList.innerHTML = "<p>No offers found</p>";
   } else {
     foundOffers.forEach((offer) => {
       createOfferBox(offer);
@@ -92,7 +107,7 @@ function filterOffers(searchTerm) {
 function showOfferDetails(offer) {
   $choosenOffer.classList.toggle("hidden");
   $offersList.classList.toggle("hidden");
-  $introduceSection.classList.toggle("hidden");
+  $introduceSection.classList.add("hidden");
 
   const $hotelName = document.getElementById("hotel-name");
   $hotelName.innerText = `${offer.hotel}`;
