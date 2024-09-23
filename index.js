@@ -2,9 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   showOffers();
 });
 
-const $offersList = document.getElementById("offers-list");
-const $choosenOffer = document.getElementById("choosen-offer");
 const $introduceSection = document.getElementById("introduce-section");
+const $searchInput = document.getElementById("search-input");
+const $searchButton = document.getElementById("search-button");
+const $offersList = document.getElementById("offers-list");
+const offers = window.travelOffers;
+const $choosenOffer = document.getElementById("choosen-offer");
 const $myOfferDescription = document.getElementById("my-offer-description");
 const $selectedBoard = document.getElementById("board");
 const $selectedGuestsNumber = document.getElementById("guests");
@@ -21,38 +24,69 @@ const bookingDetails = {};
 let selectedOffer = null;
 
 function showOffers() {
-  let offers = window.travelOffers;
   offers.map((offer) => {
-    let offerDiv = document.createElement("div");
-    offerDiv.classList.add("offer-box");
-    let imageDiv = document.createElement("div");
-    let descriptionPlace = document.createElement("div");
-    descriptionPlace.classList.add("decription-style");
+    createOfferBox(offer);
 
-    offerDiv.appendChild(imageDiv);
-    offerDiv.appendChild(descriptionPlace);
+    return { offer };
+  });
+}
 
-    let offerImage = document.createElement("img");
-    offerImage.classList.add("offer-image");
-    offerImage.src = "static/images/chor-tsang-07mSKrzKiRw-unsplash.jpg";
-    offerImage.alt = "Offer's picture";
-    imageDiv.appendChild(offerImage);
+function createOfferBox(offer) {
+  let offerDiv = document.createElement("div");
+  offerDiv.classList.add("offer-box");
+  let imageDiv = document.createElement("div");
+  let descriptionPlace = document.createElement("div");
+  descriptionPlace.classList.add("decription-style");
 
-    let description = document.createElement("p");
-    description.innerHTML = `<h3>${offer.hotel}</h3>
+  offerDiv.appendChild(imageDiv);
+  offerDiv.appendChild(descriptionPlace);
+
+  let offerImage = document.createElement("img");
+  offerImage.classList.add("offer-image");
+  offerImage.src = "static/images/chor-tsang-07mSKrzKiRw-unsplash.jpg";
+  offerImage.alt = "Offer's picture";
+  imageDiv.appendChild(offerImage);
+
+  let description = document.createElement("p");
+  description.innerHTML = `<h3>${offer.hotel}</h3>
     <h4>${offer.country}, ${offer.city}</h4>
     <p>${offer.dates[0].departure} - ${offer.dates[0].return}</p>
     <p class="price-style">${offer.price} zł <span>/os</span></p>`;
-    descriptionPlace.appendChild(description);
+  descriptionPlace.appendChild(description);
 
-    $offersList.appendChild(offerDiv);
+  $offersList.appendChild(offerDiv);
 
-    offerDiv.addEventListener("click", () => {
-      selectedOffer = offer;
-      console.log(selectedOffer);
-      showOfferDetails(selectedOffer);
-    });
+  offerDiv.addEventListener("mouseenter", function () {
+    this.style.cursor = "pointer";
   });
+
+  offerDiv.addEventListener("click", () => {
+    selectedOffer = offer;
+    console.log(selectedOffer);
+    showOfferDetails(selectedOffer);
+  });
+}
+
+$searchButton.addEventListener("click", () => {
+  const searchTerm = $searchInput.value.toLowerCase();
+  filterOffers(searchTerm);
+});
+
+function filterOffers(searchTerm) {
+  $offersList.innerHTML = ``;
+
+  let foundOffers = offers.filter(
+    (offer) =>
+      offer.country.toLowerCase().includes(searchTerm) ||
+      offer.city.toLowerCase().includes(searchTerm)
+  );
+  if (foundOffers.length === 0) {
+    $offersList.innerHTML = "<p>No offers found<p>";
+  } else {
+    foundOffers.forEach((offer) => {
+      createOfferBox(offer);
+    });
+  }
 }
 
 function showOfferDetails(offer) {
@@ -194,6 +228,8 @@ function bookOffer(offer, bookingDetails) {
       let choosenPaymentMethod = event.target.value.replace("-", " ");
       bookingDetails.paymentMethod = choosenPaymentMethod;
     }
+
+    return { bookingDetails };
   });
 }
 
@@ -201,6 +237,7 @@ $reservationForm.addEventListener("submit", (event) => {
   event.preventDefault();
   sendBookingForm(bookingDetails);
 });
+
 const $backToOfferDetailsBtn = document.getElementById("back-button-booking");
 $backToOfferDetailsBtn.addEventListener("click", backToOfferDetails);
 
