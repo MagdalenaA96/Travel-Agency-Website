@@ -145,9 +145,15 @@ main label {
 }
 
 .offer-box {
+  height: 300px;
   margin-left: 20px;
   margin-bottom: 20px;
   display: flex;
+}
+
+.actual-offer {
+  background-color:   rgb(182, 218, 251);
+    opacity: 0.8;
 }
 
 .offer-image {

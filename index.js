@@ -58,6 +58,11 @@ function createOfferBox(offer) {
 
   offerDiv.addEventListener("mouseenter", function () {
     this.style.cursor = "pointer";
+    offerDiv.classList.add("actual-offer")
+  });
+
+  offerDiv.addEventListener("mouseleave", function () {
+    offerDiv.classList.remove("actual-offer")
   });
 
   offerDiv.addEventListener("click", () => {
