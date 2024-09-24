@@ -140,7 +140,7 @@ main label {
   line-height: 1.5;
 }
 
-#introduce p {
+#introduce-section p {
   text-align: justify;
 }
 
@@ -152,8 +152,8 @@ main label {
 }
 
 .actual-offer {
-  background-color:   rgb(182, 218, 251);
-    opacity: 0.8;
+  background-color: rgb(182, 218, 251);
+  opacity: 0.8;
 }
 
 .offer-image {
@@ -229,7 +229,7 @@ main label {
   padding: 15px;
   width: 70%;
   background-color: white;
-  border:dashed 2px gray;
+  border: dashed 2px gray;
   border-radius: 0 70px 0 70px;
 }
 

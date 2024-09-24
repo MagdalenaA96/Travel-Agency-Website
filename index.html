@@ -26,11 +26,11 @@
         </div>
         <nav>
           <ul>
-            <li><a href="#">Directions</a></li>
-            <li><a href="#">Summer</a></li>
-            <li><a href="#">Winter</a></li>
-            <li><a href="#">Last Minute</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#home-page">Home Page</a></li>
+            <li><a href="#summer-offers">Summer</a></li>
+            <li><a href="#winter-offers">Winter</a></li>
+            <li><a href="#last-minute">Last Minute</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -39,19 +39,55 @@
       <figure></figure>
     </section>
     <main>
-      <section id="introduce-section">
-        <h2>Holiday's paradise - your dream travel agency!</h2>
-        <p>
-          Holiday is a travel agency that has been a market leader for many
-          years. The trips we organize always go smoothly, and our staff ensures
-          your comfort both before and during the trip by providing all
-          necessary information, from preparing for your journey to assisting
-          with organizing various activities at your destination. Many people
-          have already trusted us. Join us and travel together!
-        </p>
+      <section id="home-page">
+        <section id="introduce-section">
+          <h2>Holiday's paradise - your dream travel agency!</h2>
+          <p>
+            Holiday is a travel agency that has been a market leader for many
+            years. The trips we organize always go smoothly, and our staff
+            ensures your comfort both before and during the trip by providing
+            all necessary information, from preparing for your journey to
+            assisting with organizing various activities at your destination.
+            Many people have already trusted us. Join us and travel together!
+          </p>
+        </section>
+        <section id="offers-list">
+          <h2>Discover our offers</h2>
+        </section>
       </section>
-      <section id="offers-list">
-        <h2>Discover our offers</h2>
+      <section class="hidden" id="summer-offers">
+        <div id="summer-offers-container">
+          <h2>Summer offers</h2>
+        </div>
+      </section>
+      <section class="hidden" id="winter-offers">
+        <h2>Winter offers</h2>
+        <div id="winter-offers-container"></div>
+      </section>
+      <section class="hidden" id="last-minute">
+        <h2>Last minute offers</h2>
+        <div id="ls-offers-container">
+          <p>
+            Unfortunately, we don't have any last-minute offers at the moment.
+          </p>
+        </div>
+      </section>
+      <section class="hidden" id="contact">
+        <h2>Contact us</h2>
+        <div>
+          <h3>Customer service office</h3>
+          <p>Office open Monday to Friday 8:00 a.m. - 3:00 p.m.</p>
+          <p><span class="bold">E-mail: </span>example@gmail.com</p>
+          <p><span class="bold">Phone number: </span>+48 123 456 789</p>
+          <p>
+            <span class="bold">Address: </span> St. Example 1, 00-000 Warsaw,
+            Poland
+          </p>
+        </div>
+      </section>
+      <section class="hidden" id="found-offers">
+        <h2>Found offers</h2>
+        <div id="found-offers-list"></div>
       </section>
       <section class="hidden" id="choosen-offer">
         <h2 id="hotel-name"></h2>
