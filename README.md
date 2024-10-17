@@ -66,6 +66,7 @@ my-app/
 
 ## 💡 Possible Future Improvements
 
+- Update the "Last Minute Offers" section to showcase limited-time deals and attract users looking for quick travel options.
 - Extend the project by adding responsive web design to ensure a better user experience across various devices and screen sizes.
 - Add user authentication and allow users to save and track their bookings.
 - Integrate with a backend API to fetch offers dynamically from a database.
