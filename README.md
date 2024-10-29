@@ -74,6 +74,15 @@ my-app/
  
 ## 📜 License
 
+This project is not specifically licensed under a well-known open-source license, as it does not utilize any external frameworks or libraries.
+
+## 📷 Image Credits
+
+Images used in this project are sourced from [Unsplash](https://unsplash.com/) and are licensed under the Unsplash License, which allows for free use for both commercial and non-commercial purposes without the need for permission or attribution (though attribution is appreciated).
+
+Photographers:
+- Photo by Sean Oulashin - [Unsplash Profile](https://unsplash.com/@oulashin)
+- Photo by Chor Tsang - [Unsplash Profile](https://unsplash.com/fr/@chortsang)
 
 ## 🤝 Contributing
 Contributions are welcome! If you have any suggestions or improvements, feel free to create an issue or submit a pull request.
