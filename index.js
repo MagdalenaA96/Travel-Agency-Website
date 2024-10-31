@@ -193,7 +193,7 @@ function filterOffers(searchTerm) {
 }
 
 function showOfferDetails(offer) {
-  getWheather();
+  getWeather();
   getCountryInfo();
   hideSection();
   $choosenOffer.classList.remove("hidden");
@@ -322,15 +322,15 @@ function getCountryInfo() {
     });
 }
 
-function showWheather(data) {
+function showWeather(data) {
   const $city = document.getElementById("city");
   $city.innerText = `${selectedOffer.city}`;
-  const $wheatherInfo = document.getElementById("wheather-info");
-  $wheatherInfo.innerHTML = `Temperature: ${data.hourly.temperature_2m[0]}`;
+  const $weatherInfo = document.getElementById("weather-info");
+  $weatherInfo.innerHTML = `Temperature: ${data.hourly.temperature_2m[0]}`;
   console.log(data);
 }
 
-function getWheather() {
+function getWeather() {
   const $latitude = selectedOffer.coordinates.latitude;
   const $longitude = selectedOffer.coordinates.longitude;
 
@@ -339,7 +339,7 @@ function getWheather() {
   )
     .then((response) => response.json())
     .then((data) => {
-      showWheather(data);
+      showWeather(data);
     });
 }
 
