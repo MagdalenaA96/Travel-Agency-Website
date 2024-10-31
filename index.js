@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const initialHash = window.location.hash || "#home-page"; // Sprawdza, czy URL zawiera hash, jeśli nie, ustawia #home-page
+  const initialHash = window.location.hash || "#home-page";
   showSection(initialHash);
   window.history.replaceState({}, "", initialHash);
 
@@ -13,7 +13,7 @@ const $introduceSection = document.getElementById("introduce-section");
 const $searchInput = document.getElementById("search-input");
 const $searchButton = document.getElementById("search-button");
 const $offersList = document.getElementById("offers-list");
-const offers = window.travelOffers;
+const offers = travelOffers;
 const sections = document.querySelectorAll("main > section");
 const $foundOffersSection = document.getElementById("found-offers");
 const $choosenOffer = document.getElementById("choosen-offer");
@@ -193,6 +193,8 @@ function filterOffers(searchTerm) {
 }
 
 function showOfferDetails(offer) {
+  getWheather();
+  getCountryInfo();
   hideSection();
   $choosenOffer.classList.remove("hidden");
 
@@ -267,6 +269,78 @@ function showOfferDetails(offer) {
 
     bookOffer(selectedOffer, bookingDetails);
   }
+}
+
+function showCountryInfo(data) {
+  const $countryInfo = document.getElementById("country-info");
+
+  const currencyKey = Object.keys(data[0].currencies)[0];
+
+  const countryLanguages = [];
+  Object.entries(data[0].languages).forEach(([languageCode, languageName]) => {
+    countryLanguages.push(languageName);
+  });
+  const languagesString = countryLanguages.toString().replaceAll(",", ", ");
+
+  const timezones = [];
+  data[0].timezones.forEach((timezone) => {
+    timezones.push(timezone);
+  });
+  const timezonesString = timezones.toString().replaceAll(",", ", ");
+  console.log(timezonesString);
+
+  $countryInfo.innerText = `Offical name of country: ${data[0].name.official}
+  Capital city: ${data[0].capital}
+  Population of this coutry: ${data[0].population}
+  Continents: ${data[0].continents}
+  Currency: ${currencyKey} - ${data[0].currencies[currencyKey].name}, symbol: ${data[0].currencies[currencyKey].symbol} 
+  Languages: ${languagesString}
+  Time zones: ${timezonesString}`;
+
+  const $flagContainer = document.getElementById("flag-container");
+
+  let flagImg = document.getElementById("country-flag");
+
+  if (flagImg) {
+    flagImg.src = ``;
+  } else {
+    flagImg = document.createElement("img");
+    flagImg.id = "country-flag";
+  }
+
+  flagImg.src = `${data[0].flags.png}`;
+
+  $flagContainer.appendChild(flagImg);
+}
+
+function getCountryInfo() {
+  fetch(`https://restcountries.com/v3.1/name/${selectedOffer.country}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      showCountryInfo(data);
+    });
+}
+
+function showWheather(data) {
+  const $city = document.getElementById("city");
+  $city.innerText = `${selectedOffer.city}`;
+  const $wheatherInfo = document.getElementById("wheather-info");
+  $wheatherInfo.innerHTML = `Temperature: ${data.hourly.temperature_2m[0]}`;
+  console.log(data);
+}
+
+function getWheather() {
+  const $latitude = selectedOffer.coordinates.latitude;
+  const $longitude = selectedOffer.coordinates.longitude;
+
+  fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${$latitude}&longitude=${$longitude}&hourly=temperature_2m,precipitation,weather_code,wind_speed_10m&forecast_days=1`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      showWheather(data);
+    });
 }
 
 const $backToOffersButton = document.getElementById("back-button-offer");
