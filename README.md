@@ -22,22 +22,29 @@ Welcome to the **Travel Agency Application** project! This is an interactive web
 To run this project locally on your machine, follow these steps:
 
 ### 1. Clone the repository:
+
 ```bash
 git clone https://github.com/your-username/travel-agency-frontend.git
 ```
 
 ### 2. Navigate to the project folder:
+
 ```bash
 cd travel-agency-frontend
 ```
+
 ### 3. Open the index.html file in your browser:
+
 You can either double-click on the index.html file, or run the following command in your terminal:
+
 ```bash
 open index.html
 ```
+
 Now you can explore the application in your browser!
 
 ## 📁 Project Structure
+
 ```plaintext
 my-app/
 │
@@ -55,7 +62,7 @@ my-app/
 ### 1.Search Offers:
 
 - Users can input text in the search bar to look for offers by country, city, or hotel name. The results are filtered dynamically as users type.
-  
+
 ### 2.Book an Offer:
 
 - After selecting a trip, users can choose accommodation options and submit their booking. The form captures the user's preferences and displays a confirmation message.
@@ -71,7 +78,7 @@ my-app/
 - Add user authentication and allow users to save and track their bookings.
 - Integrate with a backend API to fetch offers dynamically from a database.
 - Expand the search functionality to include more filters like price range, travel date, or user ratings.
- 
+
 ## 📜 License
 
 This project is not specifically licensed under a well-known open-source license, as it does not utilize any external frameworks or libraries.
@@ -81,12 +88,23 @@ This project is not specifically licensed under a well-known open-source license
 Images used in this project are sourced from [Unsplash](https://unsplash.com/) and are licensed under the Unsplash License, which allows for free use for both commercial and non-commercial purposes without the need for permission or attribution (though attribution is appreciated).
 
 Photographers:
+
 - Photo by Sean Oulashin - [Unsplash Profile](https://unsplash.com/@oulashin)
 - Photo by Chor Tsang - [Unsplash Profile](https://unsplash.com/fr/@chortsang)
 
+## 🌐 API
+
+This project utilizes the following APIs to enhance the data provided:
+
+1. **Open-Meteo API** - Provides weather data used to display current weather conditions for selected locations.
+   - **License**: The weather data provided by [Open-Meteo](https://open-meteo.com/) is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/), allowing for free usage with attribution.
+
+2. **REST Countries API** - Supplies country data, including offical country name, capital city, population, languages, continents, time zones, and currencies, displayed in the offer details section.
+   - **License**: The REST Countries API is available under the [Mozilla Public License 2.0](https://gitlab.com/restcountries/restcountries/-/blob/master/LICENSE?ref_type=heads) (MPL 2.0), which allows for free use, modification, and distribution, provided that modifications to the source code are shared under the same license.
+
+Please note that while this project itself is not licensed under a formal open-source license, the data provided by these APIs is used in accordance with their respective licenses.
+
+
 ## 🤝 Contributing
+
 Contributions are welcome! If you have any suggestions or improvements, feel free to create an issue or submit a pull request.
-
-
-
-
