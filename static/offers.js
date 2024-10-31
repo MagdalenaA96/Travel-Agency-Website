@@ -1,10 +1,11 @@
 const date = new Date();
 const year = date.getFullYear() + 1;
 
-window.travelOffers = [
+let travelOffers = [
   {
     country: "Spain",
     city: "Barcelona",
+    coordinates: { latitude: 41.3851, longitude: 2.1734 },
     price: 3000,
     hotel: "Mirador del Sol",
     transport: "Flight",
@@ -26,6 +27,7 @@ window.travelOffers = [
   {
     country: "Italy",
     city: "Rome",
+    coordinates: { latitude: 41.9028, longitude: 12.4964 },
     price: 3500,
     hotel: "Roman Villa",
     transport: "Flight",
@@ -39,13 +41,14 @@ window.travelOffers = [
       location: `Centrally located, only 5 minutes from the Colosseum and Roman Forum.`,
       beachDistance: `While Rome is inland, the beach at Lido di Ostia is just 30 minutes by train.`,
       amenities: `Fine-dining Italian restaurant, rooftop terrace, and private guided tours available.`,
-      nearbyAttractions: `GVatican City, Trevi Fountain, and the Pantheon.`,
+      nearbyAttractions: `Vatican City, Trevi Fountain, and the Pantheon.`,
       cityDescription: `Rome is a historical treasure trove, with ancient ruins and Renaissance masterpieces at every corner.`,
     },
   },
   {
     country: "France",
     city: "Paris",
+    coordinates: { latitude: 48.8566, longitude: 2.3522 },
     price: 4000,
     hotel: "Château Lumière",
     transport: "Flight",
@@ -66,6 +69,7 @@ window.travelOffers = [
   {
     country: "Greece",
     city: "Athens",
+    coordinates: { latitude: 37.9838, longitude: 23.7275 },
     price: 3200,
     hotel: "Parthenon View",
     transport: "Flight",
@@ -86,6 +90,7 @@ window.travelOffers = [
   {
     country: "Turkey",
     city: "Antalya",
+    coordinates: { latitude: 36.8969, longitude: 30.7133 },
     price: 2800,
     hotel: "Golden Sands",
     transport: "Flight",
@@ -100,12 +105,13 @@ window.travelOffers = [
       beachDistance: `The beach is right at your doorstep—perfect for sunbathing and swimming.`,
       amenities: `Multiple pools, private beach access, water slides, and spa services.`,
       nearbyAttractions: `Duden Waterfalls, Kaleici (Old Town), and Antalya Museum.`,
-      cityDescription: ` Antalya is a Turkish Riviera gem, known for its beautiful beaches, turquoise waters, and ancient ruins.`,
+      cityDescription: `Antalya is a Turkish Riviera gem, known for its beautiful beaches, turquoise waters, and ancient ruins.`,
     },
   },
   {
     country: "Egypt",
     city: "Hurghada",
+    coordinates: { latitude: 27.2579, longitude: 33.8116 },
     price: 2500,
     hotel: "Nile Oasis",
     transport: "Flight",
@@ -126,6 +132,7 @@ window.travelOffers = [
   {
     country: "Portugal",
     city: "Lisbon",
+    coordinates: { latitude: 38.7223, longitude: -9.1393 },
     price: 3400,
     hotel: "Lisbon Heights",
     transport: "Flight",
@@ -146,6 +153,7 @@ window.travelOffers = [
   {
     country: "Croatia",
     city: "Dubrovnik",
+    coordinates: { latitude: 42.6507, longitude: 18.0944 },
     price: 2900,
     hotel: "Adriatic Pearl",
     transport: "Coach",
@@ -169,6 +177,10 @@ window.travelOffers = [
     price: 4500,
     hotel: "Maya Dreams",
     transport: "Flight",
+    coordinates: {
+      latitude: 21.1619,
+      longitude: -86.8515,
+    },
     dates: [
       { departure: `${year}-05-25`, return: `${year}-06-01` },
       { departure: `${year}-07-22`, return: `${year}-07-29` },
@@ -178,7 +190,7 @@ window.travelOffers = [
       advantages: `A luxurious resort offering private villas with direct access to the beach.`,
       location: `Located on the famous Cancún strip, close to the lively nightlife and cultural sites.`,
       beachDistance: `The hotel is beachfront, with stunning turquoise waters.`,
-      amenities: `RPrivate beach, multiple pools, watersports, and Mayan-themed spa.`,
+      amenities: `Private beach, multiple pools, watersports, and Mayan-themed spa.`,
       nearbyAttractions: `Chichen Itza, Xcaret Park, and Tulum.`,
       cityDescription: `Cancún is a tropical haven, known for its beautiful beaches, ancient Mayan ruins, and vibrant nightlife.`,
     },
@@ -189,6 +201,10 @@ window.travelOffers = [
     price: 3300,
     hotel: "Seaside Retreat",
     transport: "Flight",
+    coordinates: {
+      latitude: 35.8997,
+      longitude: 14.5149,
+    },
     dates: [
       { departure: `${year}-06-15`, return: `${year}-06-22` },
       { departure: `${year}-07-25`, return: `${year}-08-01` },
@@ -209,6 +225,10 @@ window.travelOffers = [
     price: 5000,
     hotel: "Bamboo Grove",
     transport: "Flight",
+    coordinates: {
+      latitude: -8.4095,
+      longitude: 115.1889,
+    },
     dates: [
       { departure: `${year}-05-12`, return: `${year}-05-19` },
       { departure: `${year}-06-30`, return: `${year}-07-07` },
@@ -229,6 +249,10 @@ window.travelOffers = [
     price: 3800,
     hotel: "Emerald Palace",
     transport: "Flight",
+    coordinates: {
+      latitude: 13.7563,
+      longitude: 100.5018,
+    },
     dates: [
       { departure: `${year}-06-01`, return: `${year}-06-08` },
       { departure: `${year}-07-10`, return: `${year}-07-17` },
@@ -249,6 +273,10 @@ window.travelOffers = [
     price: 6000,
     hotel: "Harbour Bliss",
     transport: "Flight",
+    coordinates: {
+      latitude: -33.8688,
+      longitude: 151.2093,
+    },
     dates: [
       { departure: `${year}-06-05`, return: `${year}-06-12` },
       { departure: `${year}-07-18`, return: `${year}-07-25` },
@@ -269,6 +297,10 @@ window.travelOffers = [
     price: 3100,
     hotel: "Desert Rose",
     transport: "Flight",
+    coordinates: {
+      latitude: 31.6295,
+      longitude: -7.9811,
+    },
     dates: [
       { departure: `${year}-05-22`, return: `${year}-05-29` },
       { departure: `${year}-07-12`, return: `${year}-07-19` },
@@ -285,7 +317,14 @@ window.travelOffers = [
   },
   {
     country: "Japan",
-    city: "Tokio",
+    city: "Tokyo",
+    price: 5500,
+    hotel: "Sakura Sky",
+    transport: "Flight",
+    coordinates: {
+      latitude: 35.6895,
+      longitude: 139.6917,
+    },
     price: 5500,
     hotel: "Sakura Sky",
     transport: "Flight",
@@ -309,6 +348,10 @@ window.travelOffers = [
     price: 7500,
     hotel: "Matterhorn Peak Resort",
     transport: "Flight",
+    coordinates: {
+      latitude: 46.0207,  // Szerokość geograficzna
+      longitude: 7.7491,  // Długość geograficzna
+    },
     dates: [
       { departure: `${year}-12-15`, return: `${year}-12-22` },
       { departure: `${year + 1}-01-10`, return: `${year + 1}-01-17` },
@@ -329,6 +372,10 @@ window.travelOffers = [
     price: 6400,
     hotel: "Rocky Mountain Lodge",
     transport: "Flight",
+    coordinates: {
+      latitude: 51.1784,  // Szerokość geograficzna
+      longitude: -115.5708,  // Długość geograficzna
+    },
     dates: [
       { departure: `${year}-12-05`, return: `${year}-12-12` },
       { departure: `${year + 1}-01-20`, return: `${year + 1}-01-27` },
@@ -349,6 +396,10 @@ window.travelOffers = [
     price: 5800,
     hotel: "Arctic Light Hotel",
     transport: "Flight",
+    coordinates: {
+      latitude: 66.5039,  // Szerokość geograficzna
+      longitude: 25.7294,  // Długość geograficzna
+    },
     dates: [
       { departure: `${year}-12-20`, return: `${year}-12-27` },
       { departure: `${year + 1}-01-15`, return: `${year + 1}-01-22` },
@@ -363,4 +414,5 @@ window.travelOffers = [
       cityDescription: `Rovaniemi is the official hometown of Santa Claus, offering a unique winter experience with its Arctic beauty and festive spirit.`,
     },
   },
+  
 ];
