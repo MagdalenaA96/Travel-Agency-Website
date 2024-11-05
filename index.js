@@ -289,13 +289,13 @@ function showCountryInfo(data) {
   const timezonesString = timezones.toString().replaceAll(",", ", ");
   console.log(timezonesString);
 
-  $countryInfo.innerText = `Offical name of country: ${data[0].name.official}
-  Capital city: ${data[0].capital}
-  Population of this coutry: ${data[0].population}
-  Continents: ${data[0].continents}
-  Currency: ${currencyKey} - ${data[0].currencies[currencyKey].name}, symbol: ${data[0].currencies[currencyKey].symbol} 
-  Languages: ${languagesString}
-  Time zones: ${timezonesString}`;
+  $countryInfo.innerHTML = `<strong>Offical name of country:</strong> ${data[0].name.official} <br>
+  <strong>Capital city:</strong> ${data[0].capital} <br>
+  <strong>Population of this coutry:</strong> ${data[0].population} <br>
+  <strong>Continents:</strong> ${data[0].continents} <br>
+  <strong>Currency:</strong> ${currencyKey} - ${data[0].currencies[currencyKey].name}, symbol: ${data[0].currencies[currencyKey].symbol} <br>
+  <strong>Languages:</strong> ${languagesString} <br>
+  <strong>Time zones:</strong> ${timezonesString}`;
 
   const $flagContainer = document.getElementById("flag-container");
 
@@ -310,7 +310,7 @@ function showCountryInfo(data) {
 
   flagImg.src = `${data[0].flags.png}`;
 
-  $flagContainer.appendChild(flagImg);
+  $flagContainer.prepend(flagImg);
 }
 
 function getCountryInfo() {
@@ -322,11 +322,70 @@ function getCountryInfo() {
     });
 }
 
+const weatherImages = {
+  day: {
+    0: "static/images/weather/clear.png",
+    1: "static/images/weather/partly_cloudy.png",
+    2: "static/images/weather/partly_cloudy.png",
+    3: "static/images/weather/cloudy.png",
+    45: "static/images/weather/light_rain.png",
+    48: "static/images/weather/rain.png",
+    51: "static/images/weather/heavy_rain.png",
+    61: "static/images/weather/light_snow.png",
+    63: "static/images/weather/snow.png",
+    65: "static/images/weather/snow.png",
+    80: "static/images/weather/light_thunder.png",
+    81: "static/images/weather/heavy_thunder.png",
+    82: "static/images/weather/heavy_thunder.png",
+  },
+
+  night: {
+    0: "static/images/weather/clear_night.png",
+    1: "static/images/weather/partly_cloudy_night.png",
+    2: "static/images/weather/partly_cloudy_night.png",
+    3: "static/images/weather/cloudy_night.png",
+    45: "static/images/weather/light_rain.png",
+    48: "static/images/weather/rain.png",
+    51: "static/images/weather/heavy_rain.png",
+    61: "static/images/weather/light_snow_night.png",
+    63: "static/images/weather/snow.png",
+    65: "static/images/weather/snow.png",
+    80: "static/images/weather/light_thunder_night.png",
+    81: "static/images/weather/heavy_thunder.png",
+    82: "static/images/weather/heavy_thunder.png",
+  },
+};
+
 function showWeather(data) {
+  const $weatherImgPlace = document.getElementById("weather-img-place");
+  let weatherImg = document.getElementById("weather-img");
+
+  if (!weatherImg) {
+    weatherImg = document.createElement("img");
+    weatherImg.id = "weather-img";
+  }
+
+  let weatherCode = data.current_weather.weathercode;
+  const isDay = data.current_weather.is_day;
+  const timeOfDay = isDay ? "day" : "night";
+  weatherImg.src = weatherImages[timeOfDay][weatherCode];
+
+  $weatherImgPlace.appendChild(weatherImg);
+
+  let date = new Date();
+  let today = date.toISOString().split("T")[0];
+
+  const $today = document.getElementById("today");
+  $today.innerText = today;
+
   const $city = document.getElementById("city");
   $city.innerText = `${selectedOffer.city}`;
   const $weatherInfo = document.getElementById("weather-info");
-  $weatherInfo.innerHTML = `Temperature: ${data.hourly.temperature_2m[0]}`;
+
+  $weatherInfo.innerHTML = `<span class="bold">Temperature:</span>
+  <p>${data.current_weather.temperature} ${data.current_weather_units.temperature} </p>
+  <span class="bold">Wind speed:</span> 
+  <p/>${data.current_weather.windspeed} ${data.current_weather_units.windspeed}</p>`;
   console.log(data);
 }
 
@@ -335,7 +394,7 @@ function getWeather() {
   const $longitude = selectedOffer.coordinates.longitude;
 
   fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${$latitude}&longitude=${$longitude}&hourly=temperature_2m,precipitation,weather_code,wind_speed_10m&forecast_days=1`
+    `https://api.open-meteo.com/v1/forecast?latitude=${$latitude}&longitude=${$longitude}&current_weather=true`
   )
     .then((response) => response.json())
     .then((data) => {
