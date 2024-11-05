@@ -9,6 +9,8 @@ Welcome to the **Travel Agency Application** project! This is an interactive web
 - **Offer Filtering**: Options to filter travel packages by different criteria such as destination, price, or dates.
 - **Easy Navigation**: Clear navigation between the homepage, travel offers, and booking form with URL handling.
 - **Dynamic Content**: All travel offers are generated dynamically from predefined data, ensuring flexibility and scalability.
+- **Weather Information**: Users can view real-time weather updates for the selected city, providing essential information for their travel plans.
+- **Country Information**: Detailed information about the country associated with each offer, including flags and relevant facts.
 
 ## 🛠️ Technologies Used
 
@@ -92,18 +94,26 @@ Photographers:
 - Photo by Sean Oulashin - [Unsplash Profile](https://unsplash.com/@oulashin)
 - Photo by Chor Tsang - [Unsplash Profile](https://unsplash.com/fr/@chortsang)
 
+## 🎨 Graphic Credits
+
+Graphics used in this project are sourced from [ICONFINDER](https://www.iconfinder.com/) and are free for commercial use and do not require attribution.
+
+Graphic Designers:
+
+- Graphics by Sihan Liu - [ICONFINDER Profile](https://www.iconfinder.com/Neolau1119)
+
 ## 🌐 API
 
 This project utilizes the following APIs to enhance the data provided:
 
 1. **Open-Meteo API** - Provides weather data used to display current weather conditions for selected locations.
+
    - **License**: The weather data provided by [Open-Meteo](https://open-meteo.com/) is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/), allowing for free usage with attribution.
 
 2. **REST Countries API** - Supplies country data, including offical country name, capital city, population, languages, continents, time zones, and currencies, displayed in the offer details section.
    - **License**: The REST Countries API is available under the [Mozilla Public License 2.0](https://gitlab.com/restcountries/restcountries/-/blob/master/LICENSE?ref_type=heads) (MPL 2.0), which allows for free use, modification, and distribution, provided that modifications to the source code are shared under the same license.
 
 Please note that while this project itself is not licensed under a formal open-source license, the data provided by these APIs is used in accordance with their respective licenses.
-
 
 ## 🤝 Contributing
 
