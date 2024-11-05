@@ -6,6 +6,7 @@ let travelOffers = [
     country: "Spain",
     city: "Barcelona",
     coordinates: { latitude: 41.3851, longitude: 2.1734 },
+    cityTime: "",
     price: 3000,
     hotel: "Mirador del Sol",
     transport: "Flight",
@@ -349,8 +350,8 @@ let travelOffers = [
     hotel: "Matterhorn Peak Resort",
     transport: "Flight",
     coordinates: {
-      latitude: 46.0207,  // Szerokość geograficzna
-      longitude: 7.7491,  // Długość geograficzna
+      latitude: 46.0207,
+      longitude: 7.7491,
     },
     dates: [
       { departure: `${year}-12-15`, return: `${year}-12-22` },
@@ -373,8 +374,8 @@ let travelOffers = [
     hotel: "Rocky Mountain Lodge",
     transport: "Flight",
     coordinates: {
-      latitude: 51.1784,  // Szerokość geograficzna
-      longitude: -115.5708,  // Długość geograficzna
+      latitude: 51.1784,
+      longitude: -115.5708,
     },
     dates: [
       { departure: `${year}-12-05`, return: `${year}-12-12` },
@@ -397,8 +398,8 @@ let travelOffers = [
     hotel: "Arctic Light Hotel",
     transport: "Flight",
     coordinates: {
-      latitude: 66.5039,  // Szerokość geograficzna
-      longitude: 25.7294,  // Długość geograficzna
+      latitude: 66.5039,
+      longitude: 25.7294,
     },
     dates: [
       { departure: `${year}-12-20`, return: `${year}-12-27` },
@@ -414,5 +415,4 @@ let travelOffers = [
       cityDescription: `Rovaniemi is the official hometown of Santa Claus, offering a unique winter experience with its Arctic beauty and festive spirit.`,
     },
   },
-  
 ];
