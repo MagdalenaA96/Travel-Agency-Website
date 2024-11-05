@@ -123,26 +123,38 @@
             </div>
           </div>
         </div>
-        <div id="my-offer-description"></div>
+        <div>
+          <h3>Offer details:</h3>
+          <div id="my-offer-description"></div>
+        </div>
         <br />
-        <section id="weather ">
+        <br />
+        <section id="weather">
           <h3>The actual weather in <span id="city"></span></h3>
-          <p id="weather-info"></p>
-          <p>
+          <div id="weather-content">
+            <div id="weather-img-place"></div>
+            <div id="weather-for-date">
+              <p class="bold">The actual date:</p>
+              <p id="today"></p>
+              <p id="weather-info"></p>
+            </div>
+          </div>
+          <p class="author">
             Weather data provided by
             <a href="https://open-meteo.com/">Open-Meteo</a> under CC-BY 4.0
             license.
           </p>
         </section>
-
-        <br />
         <section id="country">
           <div id="country-info-container">
             <h3>Do you want to know more about the destination country?</h3>
             <p id="country-info"></p>
           </div>
-          <div id="flag-container"></div>
+          <figure id="flag-container">
+            <figcaption>Country flag</figcaption>
+          </figure>
         </section>
+
         <br />
         <br />
         <button class="back-button" id="back-button-offer">
