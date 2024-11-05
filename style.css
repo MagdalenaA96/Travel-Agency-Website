@@ -126,6 +126,7 @@ main section h2 {
 main h3 {
   font-size: 24px;
   line-height: 1.5;
+  margin-bottom: 10px;
 }
 
 main h4 {
@@ -222,6 +223,56 @@ main label {
 
 #my-offer-description span {
   font-weight: bold;
+}
+
+section#weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#weather-content {
+  display: flex;
+  justify-content: space-around;
+  border: 1px dashed gray;
+  border-radius: 10px;
+  max-width: 55%;
+  background-color: rgba(189, 223, 250, 0.806);
+  padding-right: 30px;
+}
+
+#weather-for-date {
+  text-align: end;
+  margin-top: 35px;
+  margin-left: 10px;
+}
+
+#weather-img {
+  width: 250px;
+  height: 250px;
+}
+
+.author {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+section#country {
+  display: flex;
+  justify-content: space-between;
+}
+
+#flag-container {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img#country-flag {
+  border: 1px solid gray;
+  width: 270px;
+  height: 180px;
 }
 
 .form-style {
