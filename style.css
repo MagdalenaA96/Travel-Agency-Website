@@ -231,7 +231,7 @@ section#weather {
   align-items: center;
 }
 
-#weather-content {
+.weather-box {
   display: flex;
   justify-content: space-around;
   border: 1px dashed gray;

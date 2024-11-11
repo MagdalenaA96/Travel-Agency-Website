@@ -356,39 +356,6 @@ const weatherImages = {
   },
 };
 
-function showWeather(data) {
-  const $weatherImgPlace = document.getElementById("weather-img-place");
-  let weatherImg = document.getElementById("weather-img");
-
-  if (!weatherImg) {
-    weatherImg = document.createElement("img");
-    weatherImg.id = "weather-img";
-  }
-
-  let weatherCode = data.current_weather.weathercode;
-  const isDay = data.current_weather.is_day;
-  const timeOfDay = isDay ? "day" : "night";
-  weatherImg.src = weatherImages[timeOfDay][weatherCode];
-
-  $weatherImgPlace.appendChild(weatherImg);
-
-  let date = new Date();
-  let today = date.toISOString().split("T")[0];
-
-  const $today = document.getElementById("today");
-  $today.innerText = today;
-
-  const $city = document.getElementById("city");
-  $city.innerText = `${selectedOffer.city}`;
-  const $weatherInfo = document.getElementById("weather-info");
-
-  $weatherInfo.innerHTML = `<span class="bold">Temperature:</span>
-  <p>${data.current_weather.temperature} ${data.current_weather_units.temperature} </p>
-  <span class="bold">Wind speed:</span> 
-  <p/>${data.current_weather.windspeed} ${data.current_weather_units.windspeed}</p>`;
-  console.log(data);
-}
-
 function getWeather() {
   const $latitude = selectedOffer.coordinates.latitude;
   const $longitude = selectedOffer.coordinates.longitude;
@@ -396,10 +363,62 @@ function getWeather() {
   fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${$latitude}&longitude=${$longitude}&current_weather=true`
   )
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error();
+      }
+      return response.json();
+    })
     .then((data) => {
-      showWeather(data);
+      showWeather(data, null);
+    })
+    .catch((error) => {
+      showWeather(null, error);
     });
+}
+
+function showWeather(data, error) {
+  const $weatherContent = document.getElementById("weather-content");
+  if (error) {
+    $weatherContent.classList.remove("weather-box")
+    $weatherContent.innerHTML = `
+    <h1> 
+    <p>Something went wrong.</p>
+  `;
+  } else {
+    $weatherContent.classList.add("weather-box")
+    
+    const $weatherImgPlace = document.getElementById("weather-img-place");
+    let weatherImg = document.getElementById("weather-img");
+
+    if (!weatherImg) {
+      weatherImg = document.createElement("img");
+      weatherImg.id = "weather-img";
+    }
+
+    let weatherCode = data.current_weather.weathercode;
+    const isDay = data.current_weather.is_day;
+    const timeOfDay = isDay ? "day" : "night";
+    weatherImg.src = weatherImages[timeOfDay][weatherCode];
+
+    $weatherImgPlace.appendChild(weatherImg);
+
+    let date = new Date();
+    let today = date.toISOString().split("T")[0];
+
+    const $today = document.getElementById("today");
+    $today.innerText = today;
+
+    const $city = document.getElementById("city");
+    $city.innerText = `${selectedOffer.city}`;
+    const $weatherInfo = document.getElementById("weather-info");
+
+    $weatherInfo.innerHTML = `<span class="bold">Temperature:</span>
+  <p>${data.current_weather.temperature} ${data.current_weather_units.temperature} </p>
+  <span class="bold">Wind speed:</span> 
+  <p/>${data.current_weather.windspeed} ${data.current_weather_units.windspeed}</p>`;
+    console.log(data);
+  }
 }
 
 const $backToOffersButton = document.getElementById("back-button-offer");
