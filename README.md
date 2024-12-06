@@ -1,6 +1,6 @@
 # 🏝️ Travel Agency Application (Frontend)
 
-Welcome to the **Travel Agency Application** project! This is an interactive web application that allows users to explore and book travel offers. It is built entirely with frontend technologies, making it easy to showcase and navigate through a variety of destinations and vacation packages.
+Welcome to the **Travel Agency Application** project! This is an interactive web application that allows users to explore and book travel offers. It is built entirely with frontend technologies, making it easy to showcase and navigate through a variety of destinations and vacation packages.0
 
 ## ✨ Features
 
@@ -17,7 +17,7 @@ Welcome to the **Travel Agency Application** project! This is an interactive web
 - **HTML5**: Provides the structure of the web application.
 - **CSS3**: Used for styling the interface and ensuring responsive design.
 - **JavaScript (ES6)**: Implements the interactivity and handles dynamic content generation.
-- **Vanilla JavaScript**: The app is developed using plain JavaScript, without relying on frameworks or libraries like React or Angular.
+- **Leaflet.js**: A powerful JavaScript library used to create interactive maps. It integrates OpenStreetMap for displaying map data and markers for selected cities.
 
 ## 🚀 Getting Started
 
@@ -112,6 +112,15 @@ This project utilizes the following APIs to enhance the data provided:
 
 2. **REST Countries API** - Supplies country data, including offical country name, capital city, population, languages, continents, time zones, and currencies, displayed in the offer details section.
    - **License**: The REST Countries API is available under the [Mozilla Public License 2.0](https://gitlab.com/restcountries/restcountries/-/blob/master/LICENSE?ref_type=heads) (MPL 2.0), which allows for free use, modification, and distribution, provided that modifications to the source code are shared under the same license.
+
+3. **OpenStreetMap & Leaflet API** - Provides map data used to display selected cities and their locations on a dynamic map. The maps are rendered using the **Leaflet.js** library.
+   - **License**: The map data is provided by [OpenStreetMap](https://www.openstreetmap.org/copyright) and is licensed under the [Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/1-0/), which allows for free usage and modification with attribution.
+   - **Attribution**: The map tiles are rendered with the following attribution:
+     ```javascript
+     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+     }).addTo(map);
+     ```
 
 Please note that while this project itself is not licensed under a formal open-source license, the data provided by these APIs is used in accordance with their respective licenses.
 
