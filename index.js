@@ -31,6 +31,7 @@ const $reservationForm = document.getElementById("reservation-form");
 let saveOfferHandler = null;
 const bookingDetails = {};
 let selectedOffer = null;
+let map;
 
 document.querySelectorAll("nav a").forEach((link) => {
   link.addEventListener("click", (event) => {
@@ -197,6 +198,7 @@ function showOfferDetails(offer) {
   getCountryInfo();
   hideSection();
   $choosenOffer.classList.remove("hidden");
+  getMap(offer);
 
   const $hotelName = document.getElementById("hotel-name");
   $hotelName.innerText = `${offer.hotel}`;
@@ -322,6 +324,27 @@ function getCountryInfo() {
     });
 }
 
+function getMap(offer) {
+  if (map) {
+    map.remove();
+  }
+
+  const lat = offer.coordinates.latitude;
+  const lon = offer.coordinates.longitude;
+
+  map = L.map("map").setView([lat, lon], 13);
+
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
+
+  map.invalidateSize();
+
+  let marker = L.marker([lat, lon]).addTo(map);
+}
+
 const weatherImages = {
   day: {
     0: "static/images/weather/clear.png",
@@ -380,14 +403,14 @@ function getWeather() {
 function showWeather(data, error) {
   const $weatherContent = document.getElementById("weather-content");
   if (error) {
-    $weatherContent.classList.remove("weather-box")
+    $weatherContent.classList.remove("weather-box");
     $weatherContent.innerHTML = `
     <h1> 
     <p>Something went wrong.</p>
   `;
   } else {
-    $weatherContent.classList.add("weather-box")
-    
+    $weatherContent.classList.add("weather-box");
+
     const $weatherImgPlace = document.getElementById("weather-img-place");
     let weatherImg = document.getElementById("weather-img");
 
