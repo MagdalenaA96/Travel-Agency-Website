@@ -1,0 +1,49 @@
+name: Sync repository to server and make requirements
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up SSH
+      id: ssh-setup
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Add remote host to known hosts
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+    - name: Test SSH connection to server
+      run: |
+        echo "Testing SSH connection to server..."
+        ssh -i ~/.ssh/id_rsa -vvv -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} echo "SSH connection to server successful"
+
+    - name: Sync repository to server
+      run: |
+        echo "Syncing repository to server..."
+        rsync -avz -e "ssh -i ~/.ssh/id_rsa -vvv -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no" --exclude='.git*' ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}
+
+    - name: Restart Docker containers
+      run: |
+        echo "Restarting Docker containers..."
+        ssh -i ~/.ssh/id_rsa -T -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          set -e  # Enable exit on error
+          cd ${{ secrets.DEPLOY_PATH }}
+          echo "Restarting Docker containers in $(pwd)"
+          docker-compose -f docker-compose.production.yml down
+          docker-compose -f docker-compose.production.yml up --build -d
+        EOF
