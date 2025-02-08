@@ -12,6 +12,8 @@ Welcome to the **Travel Agency Application** project! This is an interactive web
 - **Weather Information**: Users can view real-time weather updates for the selected city, providing essential information for their travel plans.
 - **Country Information**: Detailed information about the country associated with each offer, including flags and relevant facts.
 
+## Live Demo
+
 ## 🛠️ Technologies Used
 
 - **HTML5**: Provides the structure of the web application.
