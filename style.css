@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Special+Elite&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: azure;
+}
+
+header {
+  width: 100%;
+  background-image: url("static/images/sean-oulashin-KMn4VEeEPR8-unsplash.jpg");
+  background-size: cover;
+  height: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-right: calc((100vw - 1200px) / 2);
+}
+
+#agency-name {
+  color: rgb(255, 255, 255);
+  font-style: oblique;
+  font-size: 50px;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  padding-left: 50px;
+  margin-bottom: 25px;
+}
+
+#search-menu-box {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: auto;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  padding-right: 5px;
+}
+
+#searcher {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  height: 44px;
+  width: 100%;
+  border: 2px solid gray;
+  border-right: none;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  font-size: 20px;
+  margin-left: 25px;
+  padding-left: 15px;
+}
+
+#button-place {
+  background-color: white;
+  height: 44px;
+  width: 140px;
+  border: 2px solid gray;
+  border-left: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-buttons-style {
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: rgb(249, 66, 66);
+  font-weight: bold;
+  color: #ffffff;
+}
+
+#search-button {
+  height: 35px;
+  width: 105px;
+  font-size: 18px;
+}
+
+nav ul {
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  list-style: none;
+  margin-top: 5px;
+  padding-left: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+main {
+  max-width: 1200px;
+  background-color: azure;
+  margin: 0 auto;
+  padding: 30px 20px 0 20px;
+}
+
+main section {
+  margin-bottom: 40px;
+}
+
+main section h2 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  font-size: 28px;
+}
+
+main h3 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+main h4 {
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+main p,
+main select,
+main label {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+#introduce-section p {
+  text-align: justify;
+}
+
+.offer-box {
+  height: 300px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.actual-offer {
+  background-color: rgb(182, 218, 251);
+  opacity: 0.8;
+}
+
+.offer-image {
+  height: 300px;
+}
+
+.decription-style {
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.price-style {
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.decription-style span {
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.my-offer-container {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.travel-details-styles {
+  width: 100%;
+  margin: 5px 20px;
+  padding: 20px;
+  border: 1px solid gray;
+}
+
+#offer-details-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-side-details {
+  max-width: 300px;
+}
+
+#person-price {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.booking-buttons {
+  width: 90%;
+  height: 60px;
+  font-size: 26px;
+}
+
+.book-button-place {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#my-offer-description span {
+  font-weight: bold;
+}
+
+#map {
+  height: 330px;
+  width: 600px;
+}
+
+.one-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30px;
+}
+
+section#weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#weather-content {
+  display: flex;
+  justify-content: space-around;
+  border: 1px dashed gray;
+  border-radius: 10px;
+  max-width: 100%;
+  background-color: rgba(189, 223, 250, 0.806);
+  padding-right: 30px;
+}
+
+#weather-for-date {
+  text-align: end;
+  margin-top: 35px;
+  margin-left: 10px;
+}
+
+#weather-img {
+  width: 250px;
+  height: 250px;
+}
+
+.author {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+section#country {
+  display: flex;
+  justify-content: space-between;
+}
+
+#flag-container {
+  margin-top: 45px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img#country-flag {
+  border: 1px solid gray;
+  width: 270px;
+  height: 180px;
+}
+
+.form-style {
+  margin: 0 auto;
+  padding: 15px;
+  width: 70%;
+  background-color: white;
+  border: dashed 2px gray;
+  border-radius: 0 70px 0 70px;
+}
+
+.form-style h2 {
+  margin-bottom: 15px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.error {
+  height: 15px;
+  color: red;
+  font-size: 12px;
+  margin: 0;
+}
+
+.italic-style {
+  font-style: italic;
+}
+
+#booking-form input {
+  border: none;
+  border-bottom: solid 1px rgb(143, 139, 139);
+  font-size: 20px;
+}
+
+.form-style button {
+  width: 70%;
+}
+
+.back-button {
+  font-size: 20px;
+  color: rgb(153, 1, 1);
+  background-color: azure;
+  border: none;
+}
+
+#back-button-booking {
+  margin-bottom: 30px;
+}
+
+#back-to-homepage {
+  margin-top: 40px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}

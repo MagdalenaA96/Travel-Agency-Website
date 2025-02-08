@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holiday's paradise</title>
+    <script src="static/offers.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="agency-name">Holiday's paradise</h1>
+      <div id="search-menu-box">
+        <div id="searcher">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Type direction..."
+          />
+          <div id="button-place">
+            <button class="main-buttons-style" id="search-button">
+              Search
+            </button>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#home-page">Home Page</a></li>
+            <li><a href="#summer-offers">Summer</a></li>
+            <li><a href="#winter-offers">Winter</a></li>
+            <li><a href="#last-minute">Last Minute</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section id="slider">
+      <figure></figure>
+    </section>
+    <main>
+      <section id="home-page">
+        <section id="introduce-section">
+          <h2>Holiday's paradise - your dream travel agency!</h2>
+          <p>
+            Holiday is a travel agency that has been a market leader for many
+            years. The trips we organize always go smoothly, and our staff
+            ensures your comfort both before and during the trip by providing
+            all necessary information, from preparing for your journey to
+            assisting with organizing various activities at your destination.
+            Many people have already trusted us. Join us and travel together!
+          </p>
+        </section>
+        <section id="offers-list">
+          <h2>Discover our offers</h2>
+        </section>
+      </section>
+      <section class="hidden" id="summer-offers">
+        <div id="summer-offers-container">
+          <h2>Summer offers</h2>
+        </div>
+      </section>
+      <section class="hidden" id="winter-offers">
+        <h2>Winter offers</h2>
+        <div id="winter-offers-container"></div>
+      </section>
+      <section class="hidden" id="last-minute">
+        <h2>Last minute offers</h2>
+        <div id="ls-offers-container">
+          <p>
+            Unfortunately, we don't have any last-minute offers at the moment.
+          </p>
+        </div>
+      </section>
+      <section class="hidden" id="contact">
+        <h2>Contact us</h2>
+        <div>
+          <h3>Customer service office</h3>
+          <p>Office open Monday to Friday 8:00 a.m. - 3:00 p.m.</p>
+          <p><span class="bold">E-mail: </span>example@gmail.com</p>
+          <p><span class="bold">Phone number: </span>+48 123 456 789</p>
+          <p>
+            <span class="bold">Address: </span> St. Example 1, 00-000 Warsaw,
+            Poland
+          </p>
+        </div>
+      </section>
+      <section class="hidden" id="found-offers">
+        <h2>Found offers</h2>
+        <div id="found-offers-list"></div>
+      </section>
+      <section class="hidden" id="choosen-offer">
+        <h2 id="hotel-name"></h2>
+        <div class="my-offer-container">
+          <img src="static/images/chor-tsang-07mSKrzKiRw-unsplash.jpg" />
+          <div class="travel-details-styles">
+            <div id="offer-details-container"></div>
+            <div id="board-select">
+              <label for="board">Board:</label>
+              <select name="board" id="board">
+                <option value="0">All inclusive</option>
+                <option value="400">Half board</option>
+                <option value="1000">No board</option>
+              </select>
+            </div>
+            <div id="guests-select">
+              <label for="guests">Number of guests:</label>
+              <select name="guests" id="guests">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <p id="offer-price">Total price: <span id="total-price"></span></p>
+            <div class="book-button-place">
+              <button
+                class="main-buttons-style booking-buttons"
+                id="booking-button"
+              >
+                Book
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3>Offer details:</h3>
+          <div id="my-offer-description"></div>
+        </div>
+        <br />
+        <br />
+        <div class="one-row">
+          <section>
+            <div id="map"></div>
+          </section>
+          <section id="weather">
+            <h3>The actual weather in <span id="city"></span></h3>
+            <div class="weather-box" id="weather-content">
+              <div id="weather-img-place"></div>
+              <div id="weather-for-date">
+                <p class="bold">The actual date:</p>
+                <p id="today"></p>
+                <p id="weather-info"></p>
+              </div>
+            </div>
+            <p class="author">
+              Weather data provided by
+              <a href="https://open-meteo.com/">Open-Meteo</a> under CC-BY 4.0
+              license.
+            </p>
+          </section>
+        </div>
+
+        <section id="country">
+          <div id="country-info-container">
+            <h3>Do you want to know more about the destination country?</h3>
+            <p id="country-info"></p>
+          </div>
+          <figure id="flag-container">
+            <figcaption>Country flag</figcaption>
+          </figure>
+        </section>
+
+        <br />
+        <br />
+        <button class="back-button" id="back-button-offer">
+          &lt; Back to offer selection
+        </button>
+      </section>
+      <section id="booking-form" class="hidden">
+        <button class="back-button" id="back-button-booking">
+          &lt; Back to offer
+        </button>
+        <form action="" class="form-style" id="reservation-form">
+          <h2>Booking Form</h2>
+          <label class="bold" for="name">First name: </label>
+          <input class="booking-input" type="text" id="name" name="name" />
+          <p id="name-error" class="error"></p>
+          <label class="bold" for="surname">Surname: </label>
+          <input
+            class="booking-input"
+            type="text"
+            id="surname"
+            name="surname"
+          />
+          <p id="surname-error" class="error"></p>
+
+          <label class="bold" for="email">E-mail: </label>
+          <input class="booking-input" type="email" id="email" name="email" />
+          <p id="email-error" class="error"></p>
+
+          <label class="bold" for="phone-number">Phone number: </label>
+          <input
+            class="booking-input"
+            type="tel"
+            pattern="[0-9]{9}"
+            id="phone-number"
+            name="phone-number"
+          />
+          <p id="phone-number-error" class="error"></p>
+          <p class="bold">Method of payment:</p>
+          <div id="payment-methods">
+            <input type="radio" id="cash" name="payment-method" value="cash" />
+            <label for="cash">Cash payment at the office</label><br />
+            <input
+              type="radio"
+              id="bank-transfer"
+              name="payment-method"
+              value="bank-transfer"
+            />
+            <label for="bank-transfer">Bank transfer</label>
+          </div>
+          <p id="payment-method-error" class="error"></p>
+          <br />
+          <br />
+          <p class="italic-style">
+            Within 2 weeks, you must pay for the reservation (30% of the total
+            trip cost) using the method you selected in the form. Otherwise,
+            your reservation will be canceled.
+          </p>
+          <br />
+          <div class="book-button-place">
+            <button class="main-buttons-style booking-buttons" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </section>
+      <section id="confirmation-form" class="hidden">
+        <div>
+          <h2>Thank you for booking our offer!</h2>
+          <div id="offer-summary"></div>
+        </div>
+        <button class="back-button" id="back-to-homepage">
+          &lt; Back to home page
+        </button>
+      </section>
+    </main>
+    <footer><p>&copy; 2024 HOLIDAY's PARADISE</p></footer>
+  </body>
+</html>
+
